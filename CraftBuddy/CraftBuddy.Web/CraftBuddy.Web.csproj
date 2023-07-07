@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-CraftBuddy.Web-c790ca6b-e071-4177-a29f-1a2322488396</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.15" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.18">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CraftBuddy.Common\CraftBuddy.Common.csproj" />
+    <ProjectReference Include="..\CraftBuddy.Data.Models\CraftBuddy.Data.Models.csproj" />
+    <ProjectReference Include="..\CraftBuddy.Data\CraftBuddy.Data.csproj" />
+    <ProjectReference Include="..\CraftBuddy.Services.Data\CraftBuddy.Services.Data.csproj" />
+    <ProjectReference Include="..\CraftBuddy.Web.Infrastructure\CraftBuddy.Web.Infrastructure.csproj" />
+    <ProjectReference Include="..\CraftBuddy.Web.ViewModels\CraftBuddy.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
