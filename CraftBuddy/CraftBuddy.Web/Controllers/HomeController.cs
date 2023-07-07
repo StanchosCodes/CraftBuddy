@@ -6,15 +6,13 @@ namespace CraftBuddy.Web.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
-
-		public HomeController(ILogger<HomeController> logger)
-		{
-			_logger = logger;
-		}
-
 		public IActionResult Index()
 		{
+			if (this.User?.Identity?.IsAuthenticated ?? false)
+			{
+				return RedirectToAction("All", "Product");
+			}
+
 			return View();
 		}
 

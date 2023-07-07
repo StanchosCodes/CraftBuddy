@@ -8,6 +8,7 @@ namespace CraftBuddy.Data.Models
         {
             this.Id = Guid.NewGuid();
             this.IsDeleted = false;
+			this.IsCrafter = false;
 			this.Purchases = new HashSet<UserPurchase>();
 			this.CustomOrders = new HashSet<UserCustomOrder>();
 			this.Products = new HashSet<UserProduct>();
@@ -17,7 +18,9 @@ namespace CraftBuddy.Data.Models
 
         public bool IsDeleted { get; set; }
 
-		public virtual ICollection<UserPurchase> Purchases { get; set; }
+        public bool IsCrafter { get; set; }
+
+        public virtual ICollection<UserPurchase> Purchases { get; set; }
 
 		public virtual ICollection<UserCustomOrder> CustomOrders { get; set; }
 
