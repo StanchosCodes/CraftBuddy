@@ -9,7 +9,7 @@ namespace CraftBuddy.Data.Models
 	{
         public Event()
         {
-			this.UserEvents = new HashSet<UserEvent>();
+			this.Participants = new HashSet<EventParticipant>();
 			this.CreatedOn = DateTime.UtcNow;
 			this.IsDeleted = false;
 		}
@@ -32,6 +32,13 @@ namespace CraftBuddy.Data.Models
 		public DateTime EndDate { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Organiser))]
+        public Guid OrganiserId { get; set; }
+
+        [Required]
+        public ApplicationUser Organiser { get; set; } = null!;
+
+        [Required]
 		public int ParticipantsCount { get; set; }
 
         [Required]
@@ -40,6 +47,6 @@ namespace CraftBuddy.Data.Models
 		[Required]
 		public bool IsDeleted { get; set; }
 
-        public virtual ICollection<UserEvent> UserEvents { get; set; }
+        public virtual ICollection<EventParticipant> Participants { get; set; }
     }
 }

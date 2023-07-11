@@ -1,0 +1,79 @@
+﻿@model DetailsViewModel
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="card w-100">
+        <div class="card-body">
+            <h3 class="card-title text-center">@Model.Type</h3>
+            <img class="card-img-top" style="width: 18rem;" src=@Model.ImagePath alt="Product Image">
+            <p class="mb-0"><span class="fw-bold">Description: </span>@Model.Description</p>
+            <p class="mb-0"><span class="fw-bold">Crafter: </span>@Model.Crafter</p>
+            <p class="mb-0"><span class="fw-bold">Price: </span>@Model.Price</p>
+            <p class="mb-0"><span class="fw-bold">Created on: </span>@Model.CreatedOn</p>
+        </div>
+
+        <a asp-controller="Product" asp-action="All" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Back to All Products</a>
+        @if (User?.Identity?.Name == Model.Crafter)
+        {
+            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit</a>
+            
+			<form class="input-group-sm " id="myForm" onsubmit="customConfirm(event)" asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id">
+                    <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-3 w-100 p-3 fw-bold" />
+            </form>
+        }
+        else
+        {
+            <form class="input-group-sm " asp-controller="Product" asp-action="Purchase" asp-route-id="@Model.Id">
+                    <input type="submit" value="Purchase" class="fs-6 btn btn-warning mb-3 w-100 p-3 fw-bold" />
+            </form>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+		function customConfirm(e)
+        {
+			e = e || window.event;
+			e.preventDefault();
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: 'btn btn-success mr-5 ml-5',
+					cancelButton: 'btn btn-danger ml-5 mr-5'
+				},
+				buttonsStyling: false
+			})
+
+			swalWithBootstrapButtons.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Yes, delete it!',
+				cancelButtonText: 'No, cancel!',
+				reverseButtons: true
+			}).then((result) => {
+				if (result.isConfirmed) {
+				  const myForm = document.getElementById("myForm");
+				  myForm.submit();
+			  } else if (
+			    result.dismiss === Swal.DismissReason.cancel
+				) {
+			    swalWithBootstrapButtons.fire(
+			      'Cancelled',
+			      'Your product is safe :)',
+			      'error')
+				}
+			  })
+        }
+	</script>
+}

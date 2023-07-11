@@ -16,12 +16,16 @@
 			public const int DescriptionMaxLength = 80;
 			public const int DescriptionMinLength = 10;
 
-			public const int PriceMinValue = 1;
+			public const string PriceMinValue = "1";
+			public const string PriceMaxValue = "1000";
+
+			public const int ImagePathMaxLength = 200;
 		}
 
 		public static class Purchase
 		{
-			public const int AmountMinValue = 1;
+			public const string AmountMinValue = "1";
+			public const string AmountMaxValue = "10000";
 
 			public const int AddressMaxLength = 60;
 			public const int AddressMinLength = 5;
@@ -38,8 +42,11 @@
 			public const int DescriptionMaxLength = 80;
 			public const int DescriptionMinLength = 10;
 
-			public const int PriceMinValue = 1;
-		}
+			public const string PriceMinValue = "1";
+			public const string PriceMaxValue = "1000";
+
+            public const int ImagePathMaxLength = 200;
+        }
 
 		public static class OrderStatus
 		{

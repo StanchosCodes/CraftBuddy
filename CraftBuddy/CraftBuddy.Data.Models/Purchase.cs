@@ -9,7 +9,6 @@ namespace CraftBuddy.Data.Models
 	{
         public Purchase()
         {
-			this.UserPurchases = new HashSet<UserPurchase>();
 			this.CreatedOn = DateTime.UtcNow;
 		}
 
@@ -18,6 +17,13 @@ namespace CraftBuddy.Data.Models
 
         [Required]
         public decimal Amount { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(Client))]
+        public Guid ClientId { get; set; }
+
+        [Required]
+        public ApplicationUser Client { get; set; } = null!;
 
         [Required]
 		[MaxLength(AddressMaxLength)]
@@ -34,7 +40,5 @@ namespace CraftBuddy.Data.Models
 
 		[Required]
 		public DateTime CreatedOn { get; set; }
-
-        public virtual ICollection<UserPurchase> UserPurchases { get; set; }
     }
 }

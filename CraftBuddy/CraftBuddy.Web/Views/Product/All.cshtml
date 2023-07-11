@@ -1,1 +1,36 @@
-﻿<p>This is the All View for the Product Controller All Action</p>
+﻿@model IEnumerable<ProductViewModel>
+
+@{
+    ViewBag.Title = "All Available Products";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var p in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h5 class="card-title mt-1">Type: @p.Type</h5>
+                <p class="mb-0"><span class="fw-bold">Price: </span>@p.Price</p>
+                <img class="card-img-top" style="width: 18rem;" src=@p.ImagePath alt="Product Image">
+            </div>
+
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@p.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">View Details</a>
+            @if (User?.Identity?.Name == p.Crafter)
+            {
+                <a asp-controller="Product" asp-action="Edit" asp-route-id="@p.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit</a>
+            }
+        </div>
+    }
+    @if (!Model.Any())
+    {
+        <p>No products added yet! Come back later.</p>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

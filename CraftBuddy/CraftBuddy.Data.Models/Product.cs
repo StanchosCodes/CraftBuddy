@@ -9,7 +9,6 @@ namespace CraftBuddy.Data.Models
 	{
         public Product()
         {
-			this.UserProducts = new HashSet<UserProduct>();
 			this.CreatedOn = DateTime.UtcNow;
 			this.IsDeleted = false;
 		}
@@ -35,11 +34,16 @@ namespace CraftBuddy.Data.Models
 		public string ImagePath { get; set; } = null!;
 
 		[Required]
+		[ForeignKey(nameof(Crafter))]
+        public Guid CrafterId { get; set; }
+
+		[Required]
+		public ApplicationUser Crafter { get; set; } = null!;
+
+        [Required]
 		public DateTime CreatedOn { get; set; }
 
 		[Required]
 		public bool IsDeleted { get; set; }
-
-        public virtual ICollection<UserProduct> UserProducts { get; set; }
     }
 }

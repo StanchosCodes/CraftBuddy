@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CraftBuddy.Common\CraftBuddy.Common.csproj" />
     <ProjectReference Include="..\CraftBuddy.Data.Models\CraftBuddy.Data.Models.csproj" />
     <ProjectReference Include="..\CraftBuddy.Data\CraftBuddy.Data.csproj" />

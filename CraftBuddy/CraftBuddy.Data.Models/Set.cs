@@ -31,8 +31,6 @@ namespace CraftBuddy.Data.Models
         [Required]
         public string ImagePath { get; set; } = null!;
 
-        public virtual ICollection<Product> Products { get; set; }
-
         [Required]
         [ForeignKey(nameof(Maker))]
         public Guid MakerId { get; set; }
@@ -45,5 +43,7 @@ namespace CraftBuddy.Data.Models
 
         [Required]
         public bool IsDeleted { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

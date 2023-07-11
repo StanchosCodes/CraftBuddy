@@ -1,5 +1,7 @@
 using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
+using CraftBuddy.Services.Data;
+using CraftBuddy.Services.Data.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +24,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 	.AddEntityFrameworkStores<CraftBuddyDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

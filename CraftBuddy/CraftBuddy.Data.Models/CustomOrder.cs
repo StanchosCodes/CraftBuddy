@@ -35,11 +35,16 @@ namespace CraftBuddy.Data.Models
 		public OrderStatus Status { get; set; } = null!;
 
 		[Required]
+		[ForeignKey(nameof(Client))]
+        public Guid ClientId { get; set; }
+
+		[Required]
+		public ApplicationUser Client { get; set; } = null!;
+
+        [Required]
 		public DateTime CreatedOn { get; set; }
 
 		[Required]
 		public bool IsDeleted { get; set; }
-
-        public virtual ICollection<UserCustomOrder> UserCustomOrders { get; set; }
     }
 }
