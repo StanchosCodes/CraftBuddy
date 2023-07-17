@@ -4,6 +4,7 @@ using CraftBuddy.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CraftBuddy.Data.Migrations
 {
     [DbContext(typeof(CraftBuddyDbContext))]
-    partial class CraftBuddyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230715135501_UpdatePurchasesToOrders")]
+    partial class UpdatePurchasesToOrders
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,9 +106,6 @@ namespace CraftBuddy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("ClientPhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -119,17 +118,25 @@ namespace CraftBuddy.Data.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.Property<decimal?>("Price")
+                    b.Property<int>("OrderStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("OrderStatusId");
 
-                    b.HasIndex("StatusId");
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -177,10 +184,7 @@ namespace CraftBuddy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<Guid>("CrafterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -201,31 +205,24 @@ namespace CraftBuddy.Data.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int?>("SetId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CrafterId");
+                    b.HasIndex("SetId");
 
                     b.HasIndex("TypeId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("CraftBuddy.Data.Models.ProductOrder", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductId", "OrderId");
-
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("ProductsOrders");
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.ProductType", b =>
@@ -266,6 +263,47 @@ namespace CraftBuddy.Data.Migrations
                             Id = 4,
                             Name = "Flag"
                         });
+                });
+
+            modelBuilder.Entity("CraftBuddy.Data.Models.Set", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Sets");
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.Workshop", b =>
@@ -320,12 +358,12 @@ namespace CraftBuddy.Data.Migrations
                     b.Property<int>("WorkshopId")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("ParticipantId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("WorkshopId", "ParticipantId");
+                    b.HasKey("WorkshopId", "UserId");
 
-                    b.HasIndex("ParticipantId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("WorkshopsParticipants");
                 });
@@ -467,30 +505,36 @@ namespace CraftBuddy.Data.Migrations
 
             modelBuilder.Entity("CraftBuddy.Data.Models.Order", b =>
                 {
-                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "Client")
-                        .WithMany("Orders")
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("CraftBuddy.Data.Models.OrderStatus", "Status")
                         .WithMany("Orders")
-                        .HasForeignKey("StatusId")
+                        .HasForeignKey("OrderStatusId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Client");
+                    b.HasOne("CraftBuddy.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Product");
 
                     b.Navigation("Status");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.Product", b =>
                 {
-                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "Crafter")
+                    b.HasOne("CraftBuddy.Data.Models.Set", null)
                         .WithMany("Products")
-                        .HasForeignKey("CrafterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .HasForeignKey("SetId");
 
                     b.HasOne("CraftBuddy.Data.Models.ProductType", "Type")
                         .WithMany("Products")
@@ -498,28 +542,26 @@ namespace CraftBuddy.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Crafter");
+                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "User")
+                        .WithMany("Products")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Type");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("CraftBuddy.Data.Models.ProductOrder", b =>
+            modelBuilder.Entity("CraftBuddy.Data.Models.Set", b =>
                 {
-                    b.HasOne("CraftBuddy.Data.Models.Order", "Order")
-                        .WithMany("Products")
-                        .HasForeignKey("OrderId")
+                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "User")
+                        .WithMany("Sets")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("CraftBuddy.Data.Models.Product", "Product")
-                        .WithMany("Orders")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.Workshop", b =>
@@ -535,10 +577,10 @@ namespace CraftBuddy.Data.Migrations
 
             modelBuilder.Entity("CraftBuddy.Data.Models.WorkshopParticipant", b =>
                 {
-                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "Participant")
+                    b.HasOne("CraftBuddy.Data.Models.ApplicationUser", "User")
                         .WithMany("JoinedWorkshops")
-                        .HasForeignKey("ParticipantId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("CraftBuddy.Data.Models.Workshop", "Workshop")
@@ -547,7 +589,7 @@ namespace CraftBuddy.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Participant");
+                    b.Navigation("User");
 
                     b.Navigation("Workshop");
                 });
@@ -611,12 +653,9 @@ namespace CraftBuddy.Data.Migrations
 
                     b.Navigation("Products");
 
-                    b.Navigation("Workshops");
-                });
+                    b.Navigation("Sets");
 
-            modelBuilder.Entity("CraftBuddy.Data.Models.Order", b =>
-                {
-                    b.Navigation("Products");
+                    b.Navigation("Workshops");
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.OrderStatus", b =>
@@ -624,12 +663,12 @@ namespace CraftBuddy.Data.Migrations
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("CraftBuddy.Data.Models.Product", b =>
+            modelBuilder.Entity("CraftBuddy.Data.Models.ProductType", b =>
                 {
-                    b.Navigation("Orders");
+                    b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("CraftBuddy.Data.Models.ProductType", b =>
+            modelBuilder.Entity("CraftBuddy.Data.Models.Set", b =>
                 {
                     b.Navigation("Products");
                 });

@@ -3,7 +3,7 @@ using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static CraftBuddy.Common.ImagePathConstants.ImagePath;
 
 namespace CraftBuddy.Services.Data
 {
@@ -26,7 +26,7 @@ namespace CraftBuddy.Services.Data
                     Id = p.Id,
                     Type = p.Type.Name,
                     Crafter = p.Crafter.UserName,
-                    Price = p.Price,
+                    Price = p.Price ?? 0,
                     ImagePath = p.ImagePath
                 })
                 .ToListAsync();
@@ -71,17 +71,17 @@ namespace CraftBuddy.Services.Data
             }
         }
 
-        public async Task<DetailsViewModel> GetDetailsAsync(int productId)
+        public async Task<ProductDetailsViewModel> GetDetailsAsync(int productId)
         {
-            DetailsViewModel? detailsModel = await this.context
+            ProductDetailsViewModel? detailsModel = await this.context
                 .Products
                 .Where(p => p.Id == productId && p.IsDeleted == false)
-                .Select(p => new DetailsViewModel()
+                .Select(p => new ProductDetailsViewModel()
                 {
                     Id = p.Id,
                     Description = p.Description,
                     Type = p.Type.Name,
-                    Price = p.Price,
+                    Price = p.Price ?? 0,
                     ImagePath = p.ImagePath,
                     Crafter = p.Crafter.UserName,
                     CreatedOn = p.CreatedOn
@@ -119,6 +119,13 @@ namespace CraftBuddy.Services.Data
             await this.context.SaveChangesAsync();
         }
 
+        public async Task DeleteAsync(Product productToDelete)
+        {
+            productToDelete.IsDeleted = true;
+
+            await this.context.SaveChangesAsync();
+        }
+
         private string ChangeImagePath(int productTypeId)
         {
             string imagePath = string.Empty;
@@ -127,34 +134,27 @@ namespace CraftBuddy.Services.Data
             {
                 case 1:
                     {
-                        imagePath = "/img/Hat.jpg";
+                        imagePath = HatImagePath;
                     }
                     break;
                 case 2:
                     {
-                        imagePath = "/img/Banner.jpg";
+                        imagePath = BannerImagePath;
                     }
                     break;
                 case 3:
                     {
-                        imagePath = "/img/Topper.jpg";
+                        imagePath = TopperImagePath;
                     }
                     break;
                 case 4:
                     {
-                        imagePath = "/img/Flag.jpg";
+                        imagePath = FlagImagePath;
                     }
                     break;
             }
 
             return imagePath;
-        }
-
-        public async Task DeleteAsync(Product productToDelete)
-        {
-            productToDelete.IsDeleted = true;
-
-            await this.context.SaveChangesAsync();
         }
     }
 }

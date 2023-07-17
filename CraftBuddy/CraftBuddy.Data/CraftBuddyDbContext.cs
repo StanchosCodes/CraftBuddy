@@ -13,9 +13,7 @@ namespace CraftBuddy.Data
         {
         }
 
-        public DbSet<Set> Sets { get; set; } = null!;
-
-		public DbSet<Purchase> Purchases { get; set; } = null!;
+		public DbSet<Order> Orders { get; set; } = null!;
 
 		public DbSet<ProductType> ProductTypes { get; set; } = null!;
 
@@ -23,13 +21,13 @@ namespace CraftBuddy.Data
 
 		public DbSet<OrderStatus> OrderStatuses { get; set; } = null!;
 
-		public DbSet<Event> Events { get; set; } = null!;
+		public DbSet<Workshop> Workshops { get; set; } = null!;
 
-		public DbSet<CustomOrder> CustomOrders { get; set; } = null!;
+		public DbSet<WorkshopParticipant> WorkshopsParticipants { get; set; } = null!;
 
-		public DbSet<EventParticipant> EventsParticipants { get; set; } = null!;
+		public DbSet<ProductOrder> ProductsOrders { get; set; } = null!;
 
-		protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder)
 		{
 			Assembly configurationAssembly = Assembly.GetAssembly(typeof(CraftBuddyDbContext)) ??
 														  Assembly.GetExecutingAssembly();

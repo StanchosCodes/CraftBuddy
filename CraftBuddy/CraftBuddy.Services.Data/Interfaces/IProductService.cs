@@ -16,7 +16,7 @@ namespace CraftBuddy.Services.Data.Interfaces
 
         Task AddAsync(Guid CrafterId, AddEditProductViewModel addProductModel);
 
-        Task<DetailsViewModel> GetDetailsAsync(int productId);
+        Task<ProductDetailsViewModel> GetDetailsAsync(int productId);
 
         Task<Product> GetProductAsync(int id);
 

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<OrderViewModel>
+
+@{
+    ViewBag.Title = "Your Orders";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var o in Model)
+    {
+        <div class="card col-4" style="width: 20rem; ">
+            <div class="card-body">
+                <h5 class="card-title mt-1">@o.Product.Type</h5>
+                <p class="mb-0"><span class="fw-bold">Price: </span>@o.Price</p>
+                <p class="mb-0"><span class="fw-bold">Status: </span>@o.Status</p>
+            </div>
+
+            <a asp-controller="Order" asp-action="Details" asp-route-id="@o.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">View Details</a>
+        </div>
+    }
+    @if (!Model.Any())
+    {
+        <p>No orders made yet! Go buy some products.</p>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

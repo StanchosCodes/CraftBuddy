@@ -7,7 +7,7 @@ namespace CraftBuddy.Data.Models
 	{
         public OrderStatus()
         {
-            this.CustomOrders = new HashSet<CustomOrder>();
+            this.Orders = new HashSet<Order>();
         }
 
         [Key]
@@ -17,6 +17,6 @@ namespace CraftBuddy.Data.Models
         [MaxLength(NameMaxLength)]
         public string Name { get; set; } = null!;
 
-        public virtual ICollection<CustomOrder> CustomOrders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

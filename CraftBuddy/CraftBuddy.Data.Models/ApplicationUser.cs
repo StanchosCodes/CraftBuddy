@@ -9,25 +9,22 @@ namespace CraftBuddy.Data.Models
             this.Id = Guid.NewGuid();
             this.IsDeleted = false;
 			this.IsCrafter = false;
-			this.Purchases = new HashSet<Purchase>();
-			this.CustomOrders = new HashSet<CustomOrder>();
+			this.Orders = new HashSet<Order>();
 			this.Products = new HashSet<Product>();
-			this.Events = new HashSet<Event>();
-			this.Sets = new HashSet<Set>();
+			this.Workshops = new HashSet<Workshop>();
+			this.JoinedWorkshops = new HashSet<WorkshopParticipant>();
         }
 
         public bool IsDeleted { get; set; }
 
         public bool IsCrafter { get; set; }
 
-        public virtual ICollection<Purchase> Purchases { get; set; }
-
-		public virtual ICollection<CustomOrder> CustomOrders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
 		public virtual ICollection<Product> Products { get; set; }
 
-		public virtual ICollection<Event> Events { get; set; }
+		public virtual ICollection<Workshop> Workshops { get; set; }
 
-		public virtual ICollection<Set> Sets { get; set; }
+		public virtual ICollection<WorkshopParticipant> JoinedWorkshops { get; set; }
 	}
 }

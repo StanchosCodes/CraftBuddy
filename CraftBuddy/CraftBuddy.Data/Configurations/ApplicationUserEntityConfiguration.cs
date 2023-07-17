@@ -18,6 +18,11 @@ namespace CraftBuddy.Data.Configurations
 				.Property(au => au.UserName)
 				.HasMaxLength(UserNameMaxLength)
 				.IsRequired(true);
+
+			builder
+				.HasMany(au => au.Workshops)
+				.WithOne(w => w.Organiser)
+				.OnDelete(DeleteBehavior.Restrict);
 		}
 	}
 }

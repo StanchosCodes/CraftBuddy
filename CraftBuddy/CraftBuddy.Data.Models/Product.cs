@@ -9,8 +9,10 @@ namespace CraftBuddy.Data.Models
 	{
         public Product()
         {
+			this.Orders = new HashSet<ProductOrder>();
 			this.CreatedOn = DateTime.UtcNow;
 			this.IsDeleted = false;
+			this.IsCustom = false;
 		}
 
         [Key]
@@ -27,8 +29,7 @@ namespace CraftBuddy.Data.Models
 		[MaxLength(DescriptionMaxLength)]
 		public string Description { get; set; } = null!;
 
-		[Required]
-		public decimal Price { get; set; }
+		public decimal? Price { get; set; }
 
 		[Required]
 		public string ImagePath { get; set; } = null!;
@@ -45,5 +46,10 @@ namespace CraftBuddy.Data.Models
 
 		[Required]
 		public bool IsDeleted { get; set; }
+
+		[Required]
+        public bool IsCustom { get; set; }
+
+        public virtual ICollection<ProductOrder> Orders { get; set; }
     }
 }

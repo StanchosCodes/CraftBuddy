@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace CraftBuddy.Web.Controllers
 {
-	public class HomeController : Controller
+    public class HomeController : Controller
 	{
-		public IActionResult Index()
+        public IActionResult Index()
 		{
 			if (this.User?.Identity?.IsAuthenticated ?? false)
 			{

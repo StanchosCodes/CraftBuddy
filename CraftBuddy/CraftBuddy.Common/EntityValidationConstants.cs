@@ -54,10 +54,10 @@
 			public const int NameMinLength = 5;
 		}
 
-		public static class Event
+		public static class Workshop
 		{
-			public const int NameMaxLength = 40;
-			public const int NameMinLength = 10;
+			public const int TitleMaxLength = 40;
+			public const int TitleMinLength = 10;
 
 			public const int DescriptionMaxLength = 80;
 			public const int DescriptionMinLength = 10;

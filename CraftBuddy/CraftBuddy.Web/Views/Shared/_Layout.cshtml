@@ -29,16 +29,22 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Add">Add a Product</a>
                             </li> 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Purchase" asp-action="All">My Purchases</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="All">My Orders</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="CustomOrder" asp-action="Create">Create a Custom Product</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="AddCustom">Create a Custom Product</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Set" asp-action="Create">Create a Set of Products</a>
-                            </li> 
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Waiting">Waiting Orders</a>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="Add">Add Event</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="All">All Workshops</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Add">Add Workshop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Joined">My Workshops</a>
                             </li>
                         }
                         else

@@ -22,10 +22,13 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 	options.Password.RequireLowercase = false;
 	options.Password.RequireUppercase = false;
 })
+	.AddRoles<IdentityRole<Guid>>()
 	.AddEntityFrameworkStores<CraftBuddyDbContext>();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IWorkshopService, WorkshopService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 
@@ -54,5 +57,7 @@ app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+
+DbInitializer.Initialize(app.Services);
 
 app.Run();
