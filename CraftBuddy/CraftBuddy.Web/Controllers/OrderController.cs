@@ -32,5 +32,22 @@ namespace CraftBuddy.Web.Controllers
 
             return View(orders);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> AllWaiting()
+        {
+            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            if (currentUserId == null)
+            {
+                return View("Unauthorised");
+            }
+
+            Guid userId = Guid.Parse(currentUserId!);
+
+            IEnumerable<OrderViewModel> waitingOrders = await this.orderService.GetAllWaitingAsync(userId);
+
+            return View("All", waitingOrders);
+        }
     }
 }

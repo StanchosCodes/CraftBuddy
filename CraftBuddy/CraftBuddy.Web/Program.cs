@@ -2,6 +2,7 @@ using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data;
 using CraftBuddy.Services.Data.Interfaces;
+using CraftBuddy.Web.Infrastructure.ModelBinders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,7 +25,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 	.AddRoles<IdentityRole<Guid>>()
 	.AddEntityFrameworkStores<CraftBuddyDbContext>();
-builder.Services.AddControllersWithViews();
+builder.Services
+	.AddControllersWithViews()
+	.AddMvcOptions(options =>
+	{
+		options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+	});
 
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IWorkshopService, WorkshopService>();

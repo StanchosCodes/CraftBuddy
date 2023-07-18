@@ -19,6 +19,13 @@ namespace CraftBuddy.Data.Models
         public decimal? Price { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Crafter))]
+        public Guid CrafterId { get; set; }
+
+        [Required]
+        public ApplicationUser Crafter { get; set; } = null!;
+
+        [Required]
         [ForeignKey(nameof(Client))]
         public Guid ClientId { get; set; }
 
