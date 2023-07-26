@@ -1,0 +1,52 @@
+﻿@model AddEditCustomOrderViewModel
+
+@{
+    ViewBag.Title = "Edit Custom Order";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-action="Edit" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.StatusId" class="form-label-add-edit">Status</label>
+                <select asp-for="@Model.StatusId" class="form-control" aria-required="true">
+                    @foreach (var status in Model.OrderStatuses)
+                    {
+                            <option value="@status.Id">@status.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.StatusId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Amount" class="form-label-add-edit">Price</label>
+                <input asp-for="@Model.Amount" class="form-control" aria-required="true" value="@Model.Amount" />
+                <span asp-validation-for="@Model.Amount" class="text-danger"></span>
+            </div>
+            <div class="mb-3" hidden>
+                <label asp-for="@Model.ClientPhoneNumber" class="form-label">Phone Number</label>
+                <input asp-for="@Model.ClientPhoneNumber" class="form-control" aria-required="true" />
+                <span asp-validation-for="ClientPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="mb-3" hidden>
+                <label asp-for="@Model.DeliveryAddress" class="form-label">Delivery Address</label>
+                <input asp-for="@Model.DeliveryAddress" class="form-control" aria-required="true" />
+                <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+            </div>
+            <div class="mb-3" hidden>
+                <label asp-for="@Model.Description" class="form-label-add-edit">Description</label>
+                <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="5"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary mb-2 w-40 p-3 fw-bold text" type="submit" value="Done" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}

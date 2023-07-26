@@ -1,29 +1,22 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static CraftBuddy.Common.EntityValidationConstants.Purchase;
+using static CraftBuddy.Common.EntityValidationConstants.Order;
 
 namespace CraftBuddy.Data.Models
 {
-	public class Order
+    public class Order
 	{
         public Order()
         {
 			this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<ProductOrder>();
+            this.StatusId = 1; // Waiting
 		}
 
         [Key]
         public int Id { get; set; }
 
-        public decimal? Price { get; set; }
-
-        [Required]
-        [ForeignKey(nameof(Crafter))]
-        public Guid CrafterId { get; set; }
-
-        [Required]
-        public ApplicationUser Crafter { get; set; } = null!;
+        public decimal? Amount { get; set; }
 
         [Required]
         [ForeignKey(nameof(Client))]

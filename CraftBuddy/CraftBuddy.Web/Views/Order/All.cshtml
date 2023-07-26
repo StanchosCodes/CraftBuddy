@@ -11,19 +11,24 @@
 <div class="text-center row">
     @foreach (var o in Model)
     {
-        <div class="card col-4" style="width: 20rem; ">
+        <div class="card col-4 mb-2 ms-2" style="width: 20rem; ">
             <div class="card-body">
+                <img class="card-img-top" style="width: 18rem;" src=@o.Product.ImagePath alt="Product Image">
                 <h5 class="card-title mt-1">@o.Product.Type</h5>
-                <p class="mb-0"><span class="fw-bold">Price: </span>@o.Price</p>
+                <p class="mb-0"><span class="fw-bold">Total Price: </span>@o.Amount</p>
                 <p class="mb-0"><span class="fw-bold">Status: </span>@o.Status</p>
+                @if (o.Product.IsCustom)
+                {
+                    <p class="mb-0"><span class="fw-bold">Type: </span>Custom Product</p>
+                }
             </div>
 
-            <a asp-controller="Order" asp-action="Details" asp-route-id="@o.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">View Details</a>
+            <a asp-controller="Order" asp-action="Details" asp-route-id="@o.Id" class="btn btn-outline-secondary mb-2 w-100 p-3 fw-bold">View Details</a>
         </div>
     }
     @if (!Model.Any())
     {
-        <p>No orders made yet! Go buy some products.</p>
+        <p>No orders yet!</p>
     }
 </div>
 

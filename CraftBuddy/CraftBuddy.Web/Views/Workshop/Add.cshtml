@@ -1,7 +1,7 @@
 ﻿@model AddEditWorkshopViewModel
 
 @{
-    ViewBag.Title = "Create a New Workshop";
+    ViewBag.Title = "Schedual a New Workshop";
 }
 
 
@@ -31,8 +31,8 @@
                 <input asp-for="@Model.EndDate" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
                 <span asp-validation-for="EndDate" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <input class="btn btn-warning mb-2 w-100 p-3 fw-bold" type="submit" value="Add" />
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary fw-bold text" type="submit" value="Add" />
             </div>
         </form>
     </div>

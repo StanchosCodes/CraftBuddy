@@ -15,6 +15,8 @@
             public const string WorkshopImagePath = "/img/Workshop.jpg";
 
             public const string CustomOrderImagePath = "/img/CustomOrder.jpg";
+
+            public const string BackgroundImagePath = "/img/Background.jpg";
         }
     }
 }

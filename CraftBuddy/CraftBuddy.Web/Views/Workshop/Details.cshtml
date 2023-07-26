@@ -9,10 +9,12 @@
 <hr />
 
 <div class="row">
-    <div class="card w-100">
+	<div class="card w-50">
+		<img class="mx-auto" style="width: 25rem;" src=@Model.ImagePath alt="Product Image">
+	</div>
+    <div class="card w-50">
         <div class="card-body">
             <h3 class="card-title text-center">@Model.Title</h3>
-			<img class="card-img-top" style="width: 18rem;" src=@Model.ImagePath alt="Product Image">
             <p class="mb-0"><span class="fw-bold">Description: </span>@Model.Description</p>
             <p class="mb-0"><span class="fw-bold">Starting time: </span>@Model.StartDate</p>
             <p class="mb-0"><span class="fw-bold">Ending time: </span>@Model.EndDate</p>
@@ -20,10 +22,10 @@
             <p class="mb-0"><span class="fw-bold">Created on: </span>@Model.CreatedOn</p>
         </div>
 
-        <a asp-controller="Workshop" asp-action="All" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Back to All Workshops</a>
+        <a asp-controller="Workshop" asp-action="All" class="btn btn-outline-info mb-2 w-100 p-3 fw-bold">Back to All Workshops</a>
         @if (User?.Identity?.Name == Model.Organiser)
         {
-            <a asp-controller="Workshop" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit</a>
+            <a asp-controller="Workshop" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info mb-2 w-100 p-3 fw-bold">Edit</a>
 
             <form class="input-group-sm " id="myForm" onsubmit="customConfirm(event)" asp-controller="Workshop" asp-action="Delete" asp-route-id="@Model.Id">
                     <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-3 w-100 p-3 fw-bold" />
@@ -31,8 +33,8 @@
         }
 		else
             {
-                <form class="input-group-sm " asp-controller="Workshop" asp-action="Join" asp-route-id="@Model.Id">
-                    <input type="submit" value="Participate" class="fs-6 btn btn-warning mb-3 w-100 p-3 fw-bold" />
+                <form class="input-group-sm" asp-controller="Workshop" asp-action="Join" asp-route-id="@Model.Id">
+                    <input type="submit" value="Participate" class="fs-6 btn btn-info mb-3 w-100 p-3 fw-bold" />
                 </form>
             }
 

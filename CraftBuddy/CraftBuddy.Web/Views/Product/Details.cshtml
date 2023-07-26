@@ -9,20 +9,22 @@
 <hr />
 
 <div class="row">
-    <div class="card w-100">
+	<div class="card w-50">
+		<img class="mx-auto" style="width: 25rem;" src=@Model.ImagePath alt="Product Image">
+	</div>
+    <div class="card w-50">
         <div class="card-body">
-            <h3 class="card-title text-center">@Model.Type</h3>
-            <img class="card-img-top" style="width: 18rem;" src=@Model.ImagePath alt="Product Image">
-            <p class="mb-0"><span class="fw-bold">Description: </span>@Model.Description</p>
+            <h3 class="card-title text-center mb-5">@Model.Type</h3>
+            <p class="mb-0"><span class="fw-bold mt-5">Description: </span>@Model.Description</p>
             <p class="mb-0"><span class="fw-bold">Crafter: </span>@Model.Crafter</p>
             <p class="mb-0"><span class="fw-bold">Price: </span>@Model.Price</p>
-            <p class="mb-0"><span class="fw-bold">Created on: </span>@Model.CreatedOn</p>
+            <p class="mb-0"><span class="fw-bold mb-5">Created on: </span>@Model.CreatedOn</p>
         </div>
 
-        <a asp-controller="Product" asp-action="All" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Back to All Products</a>
+        <a asp-controller="Product" asp-action="All" class="btn btn-outline-info mb-2 mt-5 w-100 p-3 fw-bold">Back to All Products</a>
         @if (User?.Identity?.Name == Model.Crafter)
         {
-            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning mb-2 w-100 p-3 fw-bold">Edit</a>
+            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info mb-2 w-100 p-3 fw-bold">Edit</a>
             
 			<form class="input-group-sm " id="myForm" onsubmit="customConfirm(event)" asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id">
                     <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-3 w-100 p-3 fw-bold" />
@@ -30,8 +32,8 @@
         }
         else
         {
-            <form class="input-group-sm " asp-controller="Product" asp-action="Purchase" asp-route-id="@Model.Id">
-                    <input type="submit" value="Purchase" class="fs-6 btn btn-warning mb-3 w-100 p-3 fw-bold" />
+            <form class="input-group-sm " asp-controller="Order" asp-action="Add" asp-route-id="@Model.Id">
+                    <input type="submit" value="Order" class="fs-6 btn btn-info	 mb-3 w-100 p-3 fw-bold" />
             </form>
         }
 

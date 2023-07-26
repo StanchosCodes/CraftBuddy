@@ -3,7 +3,7 @@ using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.EntityFrameworkCore;
-using static CraftBuddy.Common.ImagePathConstants.ImagePath;
+using static CraftBuddy.Services.Data.Utilities.ServiceUtilities;
 
 namespace CraftBuddy.Services.Data
 {
@@ -20,7 +20,7 @@ namespace CraftBuddy.Services.Data
         {
             IEnumerable<ProductViewModel> products = await this.context
                 .Products
-                .Where(p => p.IsDeleted == false)
+                .Where(p => p.IsDeleted == false && p.IsCustom == false)
                 .Select(p => new ProductViewModel()
                 {
                     Id = p.Id,
@@ -88,9 +88,7 @@ namespace CraftBuddy.Services.Data
                 })
                 .FirstOrDefaultAsync();
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return detailsModel;
-#pragma warning restore CS8603 // Possible null reference return.
+            return detailsModel!;
         }
 
         public async Task<Product> GetProductAsync(int id)
@@ -124,37 +122,6 @@ namespace CraftBuddy.Services.Data
             productToDelete.IsDeleted = true;
 
             await this.context.SaveChangesAsync();
-        }
-
-        private string ChangeImagePath(int productTypeId)
-        {
-            string imagePath = string.Empty;
-
-            switch (productTypeId)
-            {
-                case 1:
-                    {
-                        imagePath = HatImagePath;
-                    }
-                    break;
-                case 2:
-                    {
-                        imagePath = BannerImagePath;
-                    }
-                    break;
-                case 3:
-                    {
-                        imagePath = TopperImagePath;
-                    }
-                    break;
-                case 4:
-                    {
-                        imagePath = FlagImagePath;
-                    }
-                    break;
-            }
-
-            return imagePath;
         }
     }
 }

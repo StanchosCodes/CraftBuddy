@@ -12,6 +12,8 @@
 
         public string ImagePath { get; set; } = null!;
 
+        public bool IsCustom { get; set; }
+
         public string Crafter { get; set; } = null!;
 
         public DateTime CreatedOn { get; set; }

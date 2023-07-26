@@ -8,24 +8,10 @@
 			public const int UserNameMaxLength = 20;
 		}
 
-		public static class Set
+		public static class Order
 		{
-			public const int NameMaxLength = 30;
-			public const int NameMinLength = 3;
-
-			public const int DescriptionMaxLength = 80;
-			public const int DescriptionMinLength = 10;
-
-			public const string PriceMinValue = "1";
-			public const string PriceMaxValue = "1000";
-
-			public const int ImagePathMaxLength = 200;
-		}
-
-		public static class Purchase
-		{
-			public const string AmountMinValue = "1";
-			public const string AmountMaxValue = "10000";
+            public const string AmountMinValue = "0";
+			public const string AmountMaxValue = "1000";
 
 			public const int AddressMaxLength = 60;
 			public const int AddressMinLength = 5;
@@ -42,8 +28,8 @@
 			public const int DescriptionMaxLength = 80;
 			public const int DescriptionMinLength = 10;
 
-			public const string PriceMinValue = "1";
-			public const string PriceMaxValue = "1000";
+			public const string PriceMinValue = "0";
+			public const string PriceMaxValue = "500";
 
             public const int ImagePathMaxLength = 200;
         }
@@ -59,12 +45,6 @@
 			public const int TitleMaxLength = 40;
 			public const int TitleMinLength = 10;
 
-			public const int DescriptionMaxLength = 80;
-			public const int DescriptionMinLength = 10;
-		}
-
-		public static class CustomOrder
-		{
 			public const int DescriptionMaxLength = 80;
 			public const int DescriptionMinLength = 10;
 		}
