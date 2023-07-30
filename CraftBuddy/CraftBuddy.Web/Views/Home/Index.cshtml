@@ -2,7 +2,80 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center" width="display-content">
-    <img class="px-0 p-0 mr-0 mb-0 mt-0 ms-0 float-start" src="@BackgroundImagePath" alt="Background Image"/>
+@*<div class="text-center" content="width=device-width, initial-scale=1.0">
+    <img src="@BackgroundImagePath" alt="Background Image"/>
     <p>Let's make your wish decorations!</p>
+</div>*@
+
+@*<div class="bg-image" 
+     style="background-image: url("{% static '@BackgroundImagePath' %}");
+            height: 100vh">
+</div>*@
+
+@*<style>
+    body {
+        background-image:url("{% static '@BackgroundImagePath' %}"),
+    }
+</style>*@
+@*
+<div class="container mt-3">
+  <img src="@BackgroundImagePath" class="mx-auto d-block" style="width:150%"> 
+</div>*@
+
+<style>
+body {
+  background-image: url(@BackgroundImagePath);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+</style>
+<p class="text-center bold">Let's make your wish decorations!</p>
+
+<div class="d-flex justify-content-center">
+    <div id="carouselSlides" class="carousel slide carousel-dark" style="width:35rem; margin-top:15rem;" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselSlides" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="@HatImagePath" class="d-block mx-auto" style="height:550px" alt="Hat image">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="bg-black">Hat</h5>
+              <p class="bg-black">This hat might be at your baby birthday party!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="@BannerImagePath" class="d-block mx-auto" style="height:550px" alt="Banner image">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="bg-black">Banner</h5>
+              <p class="bg-black">This banner might be at your baby birthday party!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="@TopperImagePath" class="d-block mx-auto" style="height:550px" alt="Topper image">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="bg-black">Topper</h5>
+              <p class="bg-black">This topper might be at your baby birthday party!</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="@FlagImagePath" class="d-block mx-auto" style="height:550px" alt="Flag image">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Flag</h5>
+              <p>This flag might be at your baby birthday party!</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlides" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSlides" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 </div>
