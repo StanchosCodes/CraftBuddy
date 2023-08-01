@@ -1,36 +1,119 @@
-﻿@model IEnumerable<ProductViewModel>
+﻿@model AllProductsQueryModel
 
 @{
     ViewBag.Title = "All Available Products";
 }
 
-
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
-<div class="text-center row">
-    @foreach (var p in Model)
-    {
-        <div class="card col-4 mb-2 ms-2" style="width: 20rem; ">
-            <div class="card-body">
-                <h5 class="card-title mt-1">@p.Type</h5>
-                <p class="mb-0"><span class="fw-bold">Price: </span>@p.Price</p>
-                <img class="card-img-top" style="width: 18rem;" src=@p.ImagePath alt="Product Image">
+<form method="get">
+    <div class="row">
+        <div class="form-group col-md-2 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="@Model.TypeId"></label>
+                <select asp-for="@Model.TypeId" class="form-control" style="width:7rem">
+                    <option value="">All</option>
+                    @foreach (var type in Model.Types)
+                    {
+                        <option value="@type.Id">@type.Name</option>
+                    }
+                </select>
             </div>
-
-            <a asp-controller="Product" asp-action="Details" asp-route-id="@p.Id" class="btn btn-outline-secondary mb-2 w-100 p-3 fw-bold">View Details</a>
-            @if (User?.Identity?.Name == p.Crafter)
-            {
-                <a asp-controller="Product" asp-action="Edit" asp-route-id="@p.Id" class="btn btn-secondary mb-2 w-100 p-3 fw-bold">Edit</a>
-            }
         </div>
-    }
-    @if (!Model.Any())
+        <div class="form-group col-md-2 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="@Model.CrafterId"></label>
+                <select asp-for="@Model.CrafterId" class="form-control">
+                    <option value="">All</option>
+                    @foreach (var crafter in Model.Crafters)
+                    {
+                        <option value="@crafter.Id">@crafter.Username</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md-2 d-flex justify-content-between">
+            <div class="form-group">
+                <label asp-for="@Model.ProductsPerPage"></label>
+                <select asp-for="@Model.ProductsPerPage" class="form-control">
+                    <option value="4">4</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="form-group">
+                <label asp-for="@Model.Sorting"></label>
+                <select asp-for="@Model.Sorting" class="form-control" style="width:10rem">
+                    <option value="0">Newest</option>
+                    <option value="1">Oldest</option>
+                    <option value="2">Lowest price first</option>
+                    <option value="3">Highest price first</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group mt-3 p-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@{
+    int previousPage = Model.CurrentPage - 1;
+    if (previousPage < 1)
     {
-        <p>No products added yet! Come back later.</p>
+        previousPage = 1;
     }
+
+    int maxPage = (int)Math.Ceiling((double)Model.TotalProducts /
+        Model.ProductsPerPage);
+}
+
+<div class="row mb-5">
+    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
+           asp-controller="Product"
+           asp-action="All"
+           asp-route-currentPage="@previousPage"
+           asp-route-TypeId="@Model.TypeId"
+           asp-route-CrafterId="@Model.CrafterId"
+           asp-route-ProductsPerPage="@Model.ProductsPerPage"
+           asp-route-Sorting="@((int)Model.Sorting)"><<
+        </a>
+    </div>
+
+    @{
+        bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage ||
+            !Model.Products.Any();
+    }
+
+    <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary 
+           @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
+           asp-controller="Product"
+           asp-action="All"
+           asp-route-currentPage="@(Model.CurrentPage + 1)"
+           asp-route-TypeId="@Model.TypeId"
+           asp-route-CrafterId="@Model.CrafterId"
+           asp-route-ProductsPerPage="@Model.ProductsPerPage"
+           asp-route-Sorting="@((int)Model.Sorting)">>>
+        </a>
+    </div>
 </div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+<div class="text-center row">
+        @foreach (var p in Model.Products)
+        {
+            <div class="card col-4 mb-2 ms-2" style="width: 20rem; ">
+                <partial name="_ProductPartial" model="@p" />
+            </div>
+        }
+        @if (!Model.Products.Any())
+        {
+            <p>No products added yet! Come back later.</p>
+        }
+</div>

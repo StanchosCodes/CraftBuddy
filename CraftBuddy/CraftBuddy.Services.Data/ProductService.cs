@@ -2,6 +2,7 @@
 using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.ViewModels.Product;
+using CraftBuddy.Web.ViewModels.Product.Enums;
 using Microsoft.EntityFrameworkCore;
 using static CraftBuddy.Services.Data.Utilities.ServiceUtilities;
 
@@ -34,7 +35,57 @@ namespace CraftBuddy.Services.Data
             return products;
         }
 
-        public async Task<IEnumerable<ProductTypeViewModel>> GetProductTypesAsync()
+		public AllFilteredProductsViewModel GetSortedProducts(AllProductsQueryModel queryModel)
+		{
+            var productsQuery = this.context
+                .Products
+                .Where(p => p.IsDeleted == false && p.IsCustom == false)
+                .AsQueryable();
+
+            if (queryModel.TypeId != 0)
+            {
+                productsQuery = productsQuery.Where(p => p.Type.Id == queryModel.TypeId);
+            }
+
+            if (queryModel.CrafterId != default)
+            {
+                productsQuery = productsQuery.Where(p => p.Crafter.Id == queryModel.CrafterId);
+            }
+
+            productsQuery = queryModel.Sorting switch
+            {
+                ProductSorting.PriceAscending => productsQuery.OrderBy(p => p.Price),
+                ProductSorting.PriceDescending => productsQuery.OrderByDescending(p => p.Price),
+                ProductSorting.Oldest => productsQuery.OrderBy(p => p.CreatedOn),
+                ProductSorting.Newest => productsQuery.OrderByDescending(p => p.CreatedOn),
+                _ => productsQuery.OrderByDescending(p => p.CreatedOn)
+            };
+
+            IEnumerable<ProductViewModel> products = productsQuery
+                .Skip((queryModel.CurrentPage - 1) * queryModel.ProductsPerPage)
+                .Take(queryModel.ProductsPerPage)
+                .Select(p => new ProductViewModel()
+                {
+                    Id = p.Id,
+                    Type = p.Type.Name,
+                    Crafter = p.Crafter.UserName,
+                    Price = p.Price ?? 0,
+                    ImagePath = p.ImagePath
+                })
+                .ToList();
+
+            int totalProductsCount = productsQuery.Count();
+
+            AllFilteredProductsViewModel filteredProducts = new AllFilteredProductsViewModel()
+            {
+                TotalProducts = totalProductsCount,
+                Products = products
+            };
+
+            return filteredProducts;
+		}
+
+		public async Task<IEnumerable<ProductTypeViewModel>> GetProductTypesAsync()
         {
             IEnumerable<ProductTypeViewModel> productTypes = await this.context
                 .ProductTypes
@@ -123,5 +174,5 @@ namespace CraftBuddy.Services.Data
 
             await this.context.SaveChangesAsync();
         }
-    }
+	}
 }

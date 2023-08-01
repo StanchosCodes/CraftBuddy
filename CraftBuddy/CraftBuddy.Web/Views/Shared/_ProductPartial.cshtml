@@ -1,0 +1,17 @@
+﻿@model ProductViewModel
+
+<div class="card-body">
+    <h5 class="card-title mt-1">@Model.Type</h5>
+    <p class="mb-0"><span class="fw-bold">Price: </span>@Model.Price</p>
+    <img class="card-img-top" style="width: 18rem;" src=@Model.ImagePath alt="Product Image">
+</div>
+
+<a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-secondary mb-2 w-100 p-3 fw-bold">View Details</a>
+@if (User?.Identity?.Name == Model.Crafter)
+{
+    <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-secondary mb-2 w-100 p-3 fw-bold">Edit</a>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

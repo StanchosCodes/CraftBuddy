@@ -1,6 +1,8 @@
 ﻿using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data.Interfaces;
+using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product;
+using CraftBuddy.Web.ViewModels.Product.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -11,19 +13,28 @@ namespace CraftBuddy.Web.Controllers
 	public class ProductController : Controller
 	{
 		private readonly IProductService productService;
+		private readonly IOrderService orderService;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, IOrderService orderService)
         {
 			this.productService = productService;
+			this.orderService = orderService;
         }
 
         [HttpGet]
 		[AllowAnonymous]
-		public async Task<IActionResult> All()
+		public async Task<IActionResult> All([FromQuery]AllProductsQueryModel queryModel)
 		{
-			IEnumerable<ProductViewModel> products = await this.productService.GetAllAsync();
+			AllFilteredProductsViewModel sortedProducts = this.productService.GetSortedProducts(queryModel);
+			IEnumerable<ProductTypeViewModel> productTypes = await this.productService.GetProductTypesAsync();
+			IEnumerable<CrafterViewModel> crafters = await this.orderService.GetCraftersAsync();
 
-			return View(products);
+			queryModel.Products = sortedProducts.Products;
+			queryModel.TotalProducts = sortedProducts.TotalProducts;
+			queryModel.Types = productTypes;
+			queryModel.Crafters = crafters;
+
+			return View(queryModel);
 		}
 
 		[HttpGet]
