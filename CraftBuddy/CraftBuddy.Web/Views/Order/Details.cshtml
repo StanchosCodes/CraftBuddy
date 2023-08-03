@@ -24,7 +24,7 @@
             <p class="mb-0"><span class="fw-bold mb-5">Created on: </span>@Model.CreatedOn</p>
         </div>
 
-        <a asp-controller="Order" asp-action="All" class="btn btn-outline-info mb-2 mt-5 w-100 p-3 fw-bold">Back to All Orders</a>
+        <a asp-controller="Order" asp-action="All" class="btn btn-outline-info mb-2 mt-5 w-100 p-3 fw-bold">Back to Your Orders</a>
 
         @if (User?.Identity?.Name == Model.Crafter)
         {

@@ -1,6 +1,22 @@
-﻿@{
+﻿@using static CraftBuddy.Common.ImagePathConstants.ImagePath;
+@{
     ViewBag.Title = "404 - Page Not Found";
 }
 
-<h1>@ViewBag.Title</h1>
-<p>The page you are looking for does not exist.</p>
+@{
+    Layout = null;
+}
+
+ <style>
+body {
+  background-image: url(@NotFoundImagePath);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-top: 14rem;
+}
+</style>
+<body>
+    <h1 style="color:aliceblue">@ViewBag.Title</h1>
+    <p style="color:aliceblue">The page you are looking for could not be found.</p>
+</body>

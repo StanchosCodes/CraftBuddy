@@ -18,7 +18,6 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> All()
         {
             IEnumerable<WorkshopViewModel> workshops = await this.workshopService.GetAllAsync();

@@ -17,6 +17,10 @@
             public const string CustomOrderImagePath = "/img/CustomOrder.jpg";
 
             public const string BackgroundImagePath = "/img/Background.jpg";
+
+            public const string NotFoundImagePath = "/img/NotFound.png";
+
+            public const string UnathorisedImagePath = "/img/Unauthorised.jpg";
         }
     }
 }

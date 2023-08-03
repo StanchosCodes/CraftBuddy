@@ -1,5 +1,7 @@
 ﻿using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product.Enums;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace CraftBuddy.Web.ViewModels.Product
 {
@@ -14,14 +16,18 @@ namespace CraftBuddy.Web.ViewModels.Product
             this.ProductsPerPage = 4;
         }
 
-        public int TypeId { get; set; }
+		[DisplayName("Product")]
+		public int TypeId { get; set; }
 
+        [DisplayName("Crafter")]
 		public Guid CrafterId { get; set; }
 
+        [DisplayName("Sort products by:")]
 		public ProductSorting Sorting { get; set; }
 
         public int CurrentPage { get; set; }
 
+        [DisplayName("Products per page:")]
         public int ProductsPerPage { get; set; }
 
         public int TotalProducts { get; set; }

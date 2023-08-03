@@ -1,6 +1,22 @@
-﻿@{
+﻿@using static CraftBuddy.Common.ImagePathConstants.ImagePath;
+@{
     ViewBag.Title = "400 - Bad Request";
 }
 
-<h1>400 - Bad Request</h1>
-<p>The request is invalid or cannot be processed.</p>
+@{
+    Layout = null;
+}
+
+ <style>
+body {
+  background-image: url(@BadRequestImagePath);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-top: -2px;
+}
+</style>
+<body>
+    <h1 style="color:aliceblue;"><b>@ViewBag.Title</b></h1>
+    <p style="color:aliceblue;"><b>The request is invalid or cannot be processed.</b></p>
+</body>

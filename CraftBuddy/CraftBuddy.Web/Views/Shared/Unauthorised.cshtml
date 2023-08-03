@@ -1,6 +1,21 @@
-﻿@{
+﻿@using static CraftBuddy.Common.ImagePathConstants.ImagePath;
+@{
     ViewBag.Title = "401 - Unauthorized";
 }
 
-<h1>401 - Unauthorized</h1>
-<p>You are not authorized to access this page.</p>
+@{
+    Layout = null;
+}
+
+ <style>
+body {
+  background-image: url(@UnathorisedImagePath);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+</style>
+<body>
+    <h1 style="color:aliceblue;"><b>@ViewBag.Title</b></h1>
+    <p style="color:aliceblue;"><b>You are not authorized to access this page.</b></p>
+</body>
