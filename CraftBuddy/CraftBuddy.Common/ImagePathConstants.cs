@@ -21,6 +21,8 @@
             public const string NotFoundImagePath = "/img/NotFound.png";
 
             public const string UnathorisedImagePath = "/img/Unauthorised.jpg";
+
+            public const string BadRequestImagePath = "/img/BadRequest.png";
         }
     }
 }

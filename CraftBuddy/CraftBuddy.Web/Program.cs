@@ -4,6 +4,7 @@ using CraftBuddy.Services.Data;
 using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.Infrastructure.ModelBinders;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +31,7 @@ builder.Services
 	.AddMvcOptions(options =>
 	{
 		options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+		options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
 	});
 
 builder.Services.AddScoped<IProductService, ProductService>();

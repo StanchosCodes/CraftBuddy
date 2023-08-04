@@ -5,6 +5,7 @@ using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.EntityFrameworkCore;
 using static CraftBuddy.Services.Data.Utilities.ServiceUtilities;
+using static CraftBuddy.Common.OrderStatusConstants;
 
 namespace CraftBuddy.Services.Data
 {
@@ -50,7 +51,7 @@ namespace CraftBuddy.Services.Data
         {
             IEnumerable<OrderViewModel> waitingOrders = await this.context
                 .Orders
-                .Where(o => (o.Status.Name == "Waiting" || o.Status.Name == "Crafting") && o.Products.Where(po => po.Product.CrafterId == userId).Any())
+                .Where(o => (o.Status.Id == Waiting || o.Status.Id == Crafting) && o.Products.Where(po => po.Product.CrafterId == userId).Any())
                 .Select(o => new OrderViewModel()
                 {
                     Id = o.Id,
@@ -79,7 +80,7 @@ namespace CraftBuddy.Services.Data
         {
             IEnumerable<OrderViewModel> craftedOrders = await this.context
                 .Orders
-                .Where(o => o.Status.Name == "Crafted" && o.Products.Where(po => po.Product.CrafterId == userId).Any() && o.Products.Where(po => po.Product.IsCustom == true).Any())
+                .Where(o => o.Status.Id == Crafted && o.Products.Where(po => po.Product.CrafterId == userId).Any() && o.Products.Where(po => po.Product.IsCustom == true).Any())
                 .Select(o => new OrderViewModel()
                 {
                     Id = o.Id,
@@ -170,7 +171,7 @@ namespace CraftBuddy.Services.Data
                     ClientPhoneNumber = addOrderModel.ClientPhoneNumber,
                     DeliveryAddress = addOrderModel.DeliveryAddress,
                     Amount = productToOrder!.Price,
-                    StatusId = 3 // Crafted
+                    StatusId = Crafted
                 };
 
                 ProductOrder newProductOrder = new ProductOrder()

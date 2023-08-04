@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static CraftBuddy.Common.EntityValidationConstants.Order;
+using static CraftBuddy.Common.OrderStatusConstants;
 
 namespace CraftBuddy.Data.Models
 {
@@ -10,11 +11,12 @@ namespace CraftBuddy.Data.Models
         {
 			this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<ProductOrder>();
-            this.StatusId = 1; // Waiting
+            this.StatusId = Waiting;
 		}
 
         [Key]
         public int Id { get; set; }
+        // MAKE GUID!
 
         public decimal? Amount { get; set; }
 
