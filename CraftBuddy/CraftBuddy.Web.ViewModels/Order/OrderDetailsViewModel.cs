@@ -4,7 +4,7 @@ namespace CraftBuddy.Web.ViewModels.Order
 {
     public class OrderDetailsViewModel
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public decimal Amount { get; set; }
 

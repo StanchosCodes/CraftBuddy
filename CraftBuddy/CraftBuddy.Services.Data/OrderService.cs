@@ -205,7 +205,7 @@ namespace CraftBuddy.Services.Data
             return orderStatuses;
         }
 
-        public async Task<Order> GetOrderAsync(int id)
+        public async Task<Order> GetOrderAsync(Guid id)
         {
             Order? order = await this.context
                 .Orders
@@ -216,7 +216,7 @@ namespace CraftBuddy.Services.Data
 #pragma warning restore CS8603 // Possible null reference return.
         }
 
-        public async Task<ProductOrder> GetProductOrderAsync(int orderId)
+        public async Task<ProductOrder> GetProductOrderAsync(Guid orderId)
         {
             ProductOrder? productOrder = await this.context
                 .ProductsOrders
@@ -236,7 +236,7 @@ namespace CraftBuddy.Services.Data
             await this.context.SaveChangesAsync();
         }
 
-        public async Task<OrderDetailsViewModel> GetDetailsAsync(int id, Guid userId, string username, ProductDetailsViewModel product)
+        public async Task<OrderDetailsViewModel> GetDetailsAsync(Guid id, Guid userId, string username, ProductDetailsViewModel product)
         {
             OrderDetailsViewModel? orderDetails = await this.context
                 .Orders

@@ -20,12 +20,12 @@ namespace CraftBuddy.Services.Data.Interfaces
 
         Task<IEnumerable<OrderStatusViewModel>> GetOrderStatusesAsync();
 
-        Task<Order> GetOrderAsync(int id);
+        Task<Order> GetOrderAsync(Guid id);
 
-        Task<ProductOrder> GetProductOrderAsync(int orderId);
+        Task<ProductOrder> GetProductOrderAsync(Guid orderId);
 
         Task EditAsync(Order orderToEdit, AddEditCustomOrderViewModel editCustomOrderModel);
 
-        Task<OrderDetailsViewModel> GetDetailsAsync(int id, Guid userId, string username, ProductDetailsViewModel product);
+        Task<OrderDetailsViewModel> GetDetailsAsync(Guid id, Guid userId, string username, ProductDetailsViewModel product);
     }
 }

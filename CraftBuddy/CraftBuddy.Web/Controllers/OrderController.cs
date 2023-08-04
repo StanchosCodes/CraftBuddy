@@ -170,7 +170,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(Guid id)
         {
             ProductOrder productOrder = await this.orderService.GetProductOrderAsync(id);
 
@@ -205,7 +205,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(Guid id)
         {
             if (!this.User?.Identity?.IsAuthenticated ?? false)
             {
@@ -245,7 +245,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, AddEditCustomOrderViewModel editCustomOrderModel)
+        public async Task<IActionResult> Edit(Guid id, AddEditCustomOrderViewModel editCustomOrderModel)
         {
             if (!ModelState.IsValid)
             {

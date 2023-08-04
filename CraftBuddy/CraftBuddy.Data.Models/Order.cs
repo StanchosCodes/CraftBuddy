@@ -9,14 +9,14 @@ namespace CraftBuddy.Data.Models
 	{
         public Order()
         {
+            this.Id = Guid.NewGuid();
 			this.CreatedOn = DateTime.UtcNow;
             this.Products = new HashSet<ProductOrder>();
             this.StatusId = Waiting;
 		}
 
         [Key]
-        public int Id { get; set; }
-        // MAKE GUID!
+        public Guid Id { get; set; }
 
         public decimal? Amount { get; set; }
 

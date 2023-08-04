@@ -14,7 +14,7 @@ namespace CraftBuddy.Data.Models
 
         [Required]
         [ForeignKey(nameof(Order))]
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
 
         [Required]
         public Order Order { get; set; } = null!;
