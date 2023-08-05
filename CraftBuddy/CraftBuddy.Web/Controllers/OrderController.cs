@@ -133,6 +133,20 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
+			var currentUserId = this.User!.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+			if (currentUserId == null)
+			{
+				return View("Unauthorised");
+			}
+
+			Guid userId = Guid.Parse(currentUserId!);
+
+			if (productToOrder.CrafterId == userId)
+            {
+                return View("BadRequest");
+            }
+
             AddOrderViewModel addOrderModel = new AddOrderViewModel();
 
             return View(addOrderModel);

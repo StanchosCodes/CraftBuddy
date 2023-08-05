@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Add Custom Product";
+    string currentUserName = User?.Identity?.Name!;
 }
 
 <h2 class="text-center">@ViewBag.Title</h2>
@@ -26,7 +27,10 @@
                 <select asp-for="@Model.CrafterId" class="form-control">
                     @foreach (var crafter in Model.Crafters)
                     {
-                        <option value="@crafter.Id">@crafter.Username</option>
+                        @if (currentUserName != crafter.Username)
+                        {
+                            <option value="@crafter.Id">@crafter.Username</option>
+                        }
                     }
                 </select>
                 <span asp-validation-for="CrafterId" class="text-danger"></span>

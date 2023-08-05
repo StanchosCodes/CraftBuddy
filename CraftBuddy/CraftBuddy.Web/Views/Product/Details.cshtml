@@ -1,7 +1,8 @@
 ﻿@model ProductDetailsViewModel
 
 @{
-    ViewBag.Title = "Product Details";
+	ViewBag.Title = "Product Details";
+	string currentUserName = User?.Identity?.Name!;
 }
 
 
@@ -26,15 +27,13 @@
         {
             <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info mb-2 w-100 p-3 fw-bold">Edit</a>
             
-			<form class="input-group-sm " id="myForm" onsubmit="customConfirm(event)" asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id">
+			<form class="input-group-sm" id="myForm" onsubmit="customConfirm(event)" asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id">
                     <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-3 w-100 p-3 fw-bold" />
             </form>
         }
         else
         {
-            <form class="input-group-sm " asp-controller="Order" asp-action="Add" asp-route-id="@Model.Id">
-                    <input type="submit" value="Order" class="fs-6 btn btn-info	 mb-3 w-100 p-3 fw-bold" />
-            </form>
+			<a asp-controller="Order" asp-action="Add" asp-route-id="@Model.Id" class="btn btn-info mb-2 w-100 p-3 fw-bold">Order</a>
         }
 
     </div>
