@@ -67,6 +67,6 @@ app.MapControllerRoute(
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-DbInitializer.Initialize(app.Services);
+RolesInitializer.Initialize(app.Services);
 
 app.Run();

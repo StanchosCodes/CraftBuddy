@@ -2,10 +2,9 @@
 using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product;
-using CraftBuddy.Web.ViewModels.Product.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+using CraftBuddy.Web.Infrastructure.Extensions;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -65,7 +64,7 @@ namespace CraftBuddy.Web.Controllers
 				return View(addProductModel);
 			}
 
-            var currentUserId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
 			Guid userId = Guid.Parse(currentUserId!);
 
             try
@@ -111,8 +110,8 @@ namespace CraftBuddy.Web.Controllers
 				return View("BadRequest");
 			}
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User!.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             if (productToEdit.CrafterId != userId)
 			{
@@ -145,8 +144,8 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             if (productToEdit.CrafterId != userId)
             {
@@ -167,7 +166,7 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
             Guid userId = Guid.Parse(currentUserId!);
 
             if (productToDelete.CrafterId != userId)

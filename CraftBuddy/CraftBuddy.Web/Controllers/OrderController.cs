@@ -4,7 +4,7 @@ using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+using CraftBuddy.Web.Infrastructure.Extensions;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -23,7 +23,7 @@ namespace CraftBuddy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
 
             if (currentUserId == null)
             {
@@ -40,9 +40,9 @@ namespace CraftBuddy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> AllWaiting()
         {
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
 
-            if (currentUserId == null)
+			if (currentUserId == null)
             {
                 return View("Unauthorised");
             }
@@ -57,9 +57,9 @@ namespace CraftBuddy.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> AllCrafted()
         {
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
 
-            if (currentUserId == null)
+			if (currentUserId == null)
             {
                 return View("Unauthorised");
             }
@@ -102,8 +102,8 @@ namespace CraftBuddy.Web.Controllers
                 return View(addCustomOrderModel);
             }
 
-            var currentUserId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             try
             {
@@ -133,7 +133,7 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-			var currentUserId = this.User!.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+			var currentUserId = this.User!.GetId();
 
 			if (currentUserId == null)
 			{
@@ -160,9 +160,9 @@ namespace CraftBuddy.Web.Controllers
                 return View(addOrderModel);
             }
 
-            var currentUserId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
 
-            if (currentUserId == null)
+			if (currentUserId == null)
             {
                 return View("Unauthorised");
             }
@@ -195,8 +195,8 @@ namespace CraftBuddy.Web.Controllers
 
             Order order = await this.orderService.GetOrderAsync(id);
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             ProductDetailsViewModel productDetails = await this.productService.GetDetailsAsync(productOrder.ProductId);
 
@@ -233,8 +233,8 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User?.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             ProductOrder productOrder = await this.orderService.GetProductOrderAsync(id);
 
@@ -275,8 +275,8 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             ProductOrder productOrder = await this.orderService.GetProductOrderAsync(id);
 

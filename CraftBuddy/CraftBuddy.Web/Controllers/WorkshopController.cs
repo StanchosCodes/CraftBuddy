@@ -3,7 +3,7 @@ using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.ViewModels.Workshop;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+using CraftBuddy.Web.Infrastructure.Extensions;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -41,7 +41,7 @@ namespace CraftBuddy.Web.Controllers
                 return View(workshopModel);
             }
 
-            var currentUserId = this.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User.GetId();
             Guid userId = Guid.Parse(currentUserId!);
 
             try
@@ -73,8 +73,8 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User!.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             if (workshopToEdit.OrganiserId != userId)
             {
@@ -107,8 +107,8 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User!.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             if (workshop.OrganiserId != userId)
             {
@@ -141,8 +141,8 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User!.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             if (workshopToDelete.OrganiserId != userId)
             {
@@ -161,8 +161,8 @@ namespace CraftBuddy.Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            Guid userId = Guid.Parse(currentUserId!);
+            var currentUserId = this.User!.GetId();
+			Guid userId = Guid.Parse(currentUserId!);
 
             IEnumerable<WorkshopViewModel> joinedWorkshops = await this.workshopService.GetJoinedAsync(userId);
 
@@ -178,9 +178,9 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User!.GetId();
 
-            if (currentUserId == null)
+			if (currentUserId == null)
             {
                 return View("Unauthorised");
             }
@@ -217,9 +217,9 @@ namespace CraftBuddy.Web.Controllers
                 return View("BadRequest");
             }
 
-            var currentUserId = this.User?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            var currentUserId = this.User!.GetId();
 
-            if (currentUserId == null)
+			if (currentUserId == null)
             {
                 return View("Unauthorised");
             }
