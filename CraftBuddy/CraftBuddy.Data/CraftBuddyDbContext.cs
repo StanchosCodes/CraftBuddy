@@ -12,8 +12,9 @@ namespace CraftBuddy.Data
             : base(options)
         {
         }
+		public DbSet<Article> Articles { get; set; } = null!;
 
-		public DbSet<Order> Orders { get; set; } = null!;
+        public DbSet<Order> Orders { get; set; } = null!;
 
 		public DbSet<ProductType> ProductTypes { get; set; } = null!;
 

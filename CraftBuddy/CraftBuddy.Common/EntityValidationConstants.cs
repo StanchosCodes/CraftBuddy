@@ -8,6 +8,15 @@
 			public const int UserNameMaxLength = 20;
 		}
 
+		public static class Article
+		{
+			public const int TitleMaxLength = 40;
+			public const int TitleMinLength = 10;
+
+			public const int DescriptionMaxLength = 80;
+			public const int DescriptionMinLength = 10;
+		}
+
 		public static class Order
 		{
             public const string AmountMinValue = "0";

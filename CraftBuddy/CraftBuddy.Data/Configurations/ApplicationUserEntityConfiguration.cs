@@ -23,6 +23,11 @@ namespace CraftBuddy.Data.Configurations
 				.HasMany(au => au.Workshops)
 				.WithOne(w => w.Organiser)
 				.OnDelete(DeleteBehavior.Restrict);
+
+			builder
+				.HasMany(au => au.Articles)
+				.WithOne(a => a.Crafter)
+				.OnDelete(DeleteBehavior.Restrict);
 		}
 	}
 }

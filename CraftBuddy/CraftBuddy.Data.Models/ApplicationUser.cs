@@ -13,6 +13,7 @@ namespace CraftBuddy.Data.Models
 			this.Products = new HashSet<Product>();
 			this.Workshops = new HashSet<Workshop>();
 			this.JoinedWorkshops = new HashSet<WorkshopParticipant>();
+			this.Articles = new HashSet<Article>();
         }
 
         public bool IsDeleted { get; set; }
@@ -26,5 +27,7 @@ namespace CraftBuddy.Data.Models
 		public virtual ICollection<Workshop> Workshops { get; set; }
 
 		public virtual ICollection<WorkshopParticipant> JoinedWorkshops { get; set; }
+
+		public virtual ICollection<Article> Articles { get; set; }
 	}
 }
