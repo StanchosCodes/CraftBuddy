@@ -11,7 +11,7 @@ namespace CraftBuddy.Data.Models
 			this.CreatedOn = DateTime.UtcNow;
 			this.IsDeleted = false;
 			this.LikesCount = 0;
-			this.LikedUsers = new HashSet<string>();
+			this.UsersLikes = new HashSet<ArticleApplicationUser>();
         }
 
         [Key]
@@ -38,7 +38,6 @@ namespace CraftBuddy.Data.Models
 
         public int LikesCount { get; set; }
 
-		[NotMapped]
-        public ICollection<string> LikedUsers { get; set; }
+        public virtual ICollection<ArticleApplicationUser> UsersLikes { get; set; }
     }
 }

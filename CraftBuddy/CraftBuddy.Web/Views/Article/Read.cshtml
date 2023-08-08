@@ -1,0 +1,82 @@
+﻿@model ArticleDetailsViewModel
+
+@{
+    ViewBag.Title = "All Articles";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <div class="mb-2">
+            <h5 class="text-center">@Model.Title</h5>
+            <h6 class="text-center">@Model.Description</h6>
+            <p class="text-center">Writer: @Model.Crafter</p>
+            <p class="text-center">Likes:  @Model.LikesCount</p>
+            <p class="text-center">Created On @Model.CreatedOn</p>
+        </div>
+
+        <div class="text-center">
+            @if (Model.IsCurentUserLiked)
+			{
+				<a asp-controller="Article" asp-action="Dislike" asp-route-id="@Model.Id" class="btn btn-outline-info mb-2 w-40 p-3 fw-bold text">Dislike</a>
+			}
+			else
+			{
+				<a asp-controller="Article" asp-action="Like" asp-route-id="@Model.Id" class="btn btn-outline-info mb-2 w-40 p-3 fw-bold text">Like</a>
+			}
+
+            @if (User?.Identity?.Name == Model.Crafter)
+            {
+                <a asp-controller="Article" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info mb-2 w-40 p-3 fw-bold text">Edit</a>
+
+				<form class="input-group-sm " id="myForm" onsubmit="customConfirm(event)" asp-controller="Article" asp-action="Delete" asp-route-id="@Model.Id">
+                    <input type="submit" value="Delete" class="btn btn-danger mb-2 w-40 p-3 fw-bold text" />
+				</form>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+		function customConfirm(e)
+        {
+			e = e || window.event;
+			e.preventDefault();
+			const swalWithBootstrapButtons = Swal.mixin({
+				customClass: {
+					confirmButton: 'btn btn-success',
+					cancelButton: 'btn btn-danger'
+				},
+				buttonsStyling: true,
+				cancelButtonColor: '#d33'
+			})
+
+			swalWithBootstrapButtons.fire({
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Yes, delete it!',
+				cancelButtonText: 'No, cancel!',
+				reverseButtons: true
+			}).then((result) => {
+				if (result.isConfirmed) {
+				  const myForm = document.getElementById("myForm");
+				  myForm.submit();
+			  } else if (
+			    result.dismiss === Swal.DismissReason.cancel
+				) {
+			    swalWithBootstrapButtons.fire(
+			      'Cancelled',
+			      'Your article is safe :)',
+			      'error')
+				}
+			  })
+        }
+	</script>
+}

@@ -17,24 +17,6 @@ namespace CraftBuddy.Services.Data
             this.context = context;
         }
 
-        public async Task<IEnumerable<ProductViewModel>> GetAllAsync()
-        {
-            IEnumerable<ProductViewModel> products = await this.context
-                .Products
-                .Where(p => p.IsDeleted == false && p.IsCustom == false)
-                .Select(p => new ProductViewModel()
-                {
-                    Id = p.Id,
-                    Type = p.Type.Name,
-                    Crafter = p.Crafter.UserName,
-                    Price = p.Price ?? 0,
-                    ImagePath = p.ImagePath
-                })
-                .ToListAsync();
-
-            return products;
-        }
-
 		public AllFilteredProductsViewModel GetSortedProducts(AllProductsQueryModel queryModel)
 		{
             var productsQuery = this.context

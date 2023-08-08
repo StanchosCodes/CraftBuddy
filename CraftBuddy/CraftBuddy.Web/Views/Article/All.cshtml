@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ArticleViewModel>
+
+@{
+    ViewBag.Title = "All Articles";
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="text-center row">
+    @foreach (var a in Model)
+    {
+        <div class="card mb-2 ms-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">@a.Title</h5>
+                <p class="card-text">Writer: @a.Crafter</p>
+                <p class="card-text">Likes:  @a.LikesCount</p>
+            </div>
+
+            <div class="text-center">
+                <a asp-controller="Article" asp-action="Read" asp-route-id="@a.Id" class="btn btn-outline-info mb-2 w-40 p-3 fw-bold text">Read</a>
+                @if (User?.Identity?.Name == a.Crafter)
+                {
+                    <a asp-controller="Article" asp-action="Edit" asp-route-id="@a.Id" class="btn btn-info mb-2 w-40 p-3 fw-bold text">Edit</a>
+                }
+            </div>
+        </div>
+    }
+    @if (!Model.Any())
+    {
+        <p>No articles added yet! Come back later.</p>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

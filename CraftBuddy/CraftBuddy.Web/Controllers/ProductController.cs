@@ -81,6 +81,7 @@ namespace CraftBuddy.Web.Controllers
 			}
         }
 
+		[HttpGet]
 		public async Task<IActionResult> Details(int id)
 		{
 			ProductDetailsViewModel productDetails = await this.productService.GetDetailsAsync(id);

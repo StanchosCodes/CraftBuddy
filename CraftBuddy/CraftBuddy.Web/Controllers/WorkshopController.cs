@@ -120,6 +120,7 @@ namespace CraftBuddy.Web.Controllers
             return RedirectToAction("All", "Workshop");
         }
 
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             WorkshopDetailsViewModel workshopDetails = await this.workshopService.GetDetailsAsync(id);

@@ -6,8 +6,6 @@ namespace CraftBuddy.Services.Data.Interfaces
 {
 	public interface IProductService
     {
-        Task<IEnumerable<ProductViewModel>> GetAllAsync();
-
 		AllFilteredProductsViewModel GetSortedProducts(AllProductsQueryModel queryModel);
 
 		Task<IEnumerable<ProductTypeViewModel>> GetProductTypesAsync();

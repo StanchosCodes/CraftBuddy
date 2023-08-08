@@ -24,7 +24,9 @@ namespace CraftBuddy.Data
 
 		public DbSet<Workshop> Workshops { get; set; } = null!;
 
-		public DbSet<WorkshopParticipant> WorkshopsParticipants { get; set; } = null!;
+		public DbSet<ArticleApplicationUser> ArticlesApplicationUsers { get; set; } = null!;
+
+        public DbSet<WorkshopParticipant> WorkshopsParticipants { get; set; } = null!;
 
 		public DbSet<ProductOrder> ProductsOrders { get; set; } = null!;
 

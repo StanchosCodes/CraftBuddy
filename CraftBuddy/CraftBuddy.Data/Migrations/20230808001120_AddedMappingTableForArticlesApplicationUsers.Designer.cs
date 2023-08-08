@@ -4,6 +4,7 @@ using CraftBuddy.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CraftBuddy.Data.Migrations
 {
     [DbContext(typeof(CraftBuddyDbContext))]
-    partial class CraftBuddyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230808001120_AddedMappingTableForArticlesApplicationUsers")]
+    partial class AddedMappingTableForArticlesApplicationUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
