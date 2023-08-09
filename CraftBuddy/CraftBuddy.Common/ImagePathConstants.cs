@@ -14,7 +14,13 @@
 
             public const string WorkshopImagePath = "/img/Workshop.jpg";
 
-            public const string CustomOrderImagePath = "/img/CustomOrder.jpg";
+            public const string CustomHatImagePath = "/img/CustomHat.jpg";
+
+            public const string CustomBannerImagePath = "/img/CustomBanner.jpg";
+
+            public const string CustomTopperImagePath = "/img/CustomTopper.jpg";
+
+            public const string CustomFlagImagePath = "/img/CustomFlag.jpg";
 
             public const string BackgroundImagePath = "/img/Background.jpg";
 

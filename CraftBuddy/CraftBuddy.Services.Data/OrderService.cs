@@ -44,6 +44,8 @@ namespace CraftBuddy.Services.Data
                 })
                 .ToListAsync();
 
+            orders = orders.OrderByDescending(o => o.CreatedOn);
+
             return orders;
         }
 
@@ -72,6 +74,8 @@ namespace CraftBuddy.Services.Data
                     CreatedOn = o.CreatedOn.ToString("f")
                 })
                 .ToListAsync();
+
+            waitingOrders = waitingOrders.OrderByDescending(wo => wo.CreatedOn);
 
             return waitingOrders;
         }
@@ -102,6 +106,8 @@ namespace CraftBuddy.Services.Data
                 })
                 .ToListAsync();
 
+            craftedOrders = craftedOrders.OrderByDescending(co => co.CreatedOn);
+
             return craftedOrders;
         }
 
@@ -130,13 +136,15 @@ namespace CraftBuddy.Services.Data
                     ClientPhoneNumber = addCustomOrderModel.ClientPhoneNumber
                 };
 
-                Product newProduct = new Product()
+				bool isCustom = true;
+
+				Product newProduct = new Product()
                 {
                     TypeId = addCustomOrderModel.ProductTypeId,
                     Description = addCustomOrderModel.Description,
                     CrafterId = addCustomOrderModel.CrafterId,
-                    IsCustom = true,
-                    ImagePath = ChangeImagePath(addCustomOrderModel.ProductTypeId)
+                    IsCustom = isCustom,
+                    ImagePath = ChangeImagePath(addCustomOrderModel.ProductTypeId, isCustom)
                 };
 
                 ProductOrder newProductOrder = new ProductOrder()

@@ -93,7 +93,9 @@ namespace CraftBuddy.Services.Data
                     CrafterId = crafterId
                 };
 
-                newProduct.ImagePath = ChangeImagePath(addProductModel.TypeId);
+                bool isCustom = false;
+
+                newProduct.ImagePath = ChangeImagePath(addProductModel.TypeId, isCustom);
 
                 await this.context.Products.AddAsync(newProduct);
                 await this.context.SaveChangesAsync();
@@ -142,10 +144,12 @@ namespace CraftBuddy.Services.Data
 
         public async Task EditAsync(Product productToEdit, AddEditProductViewModel editModel)
         {
-            productToEdit.Description = editModel.Description;
+			bool isCustom = false;
+
+			productToEdit.Description = editModel.Description;
             productToEdit.Price = editModel.Price;
             productToEdit.TypeId = editModel.TypeId;
-            productToEdit.ImagePath = ChangeImagePath(editModel.TypeId);
+            productToEdit.ImagePath = ChangeImagePath(editModel.TypeId, isCustom);
 
             await this.context.SaveChangesAsync();
         }
