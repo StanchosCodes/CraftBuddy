@@ -18,7 +18,6 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
 	options.SignIn.RequireConfirmedAccount = false;
-	options.Password.RequiredLength = 5;
 	options.Password.RequireNonAlphanumeric = false;
 	options.Password.RequireDigit = false;
 	options.Password.RequireLowercase = false;
@@ -29,7 +28,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
-	options.LoginPath = "/Identity/Login";
+	options.LoginPath = "/User/Login";
+	options.AccessDeniedPath = "/Home/Error/401";
 });
 
 builder.Services

@@ -9,5 +9,7 @@
 		public string Crafter { get; set; } = null!;
 
 		public int LikesCount { get; set; }
+
+		public string CreatedOn { get; set; } = null!;
 	}
 }

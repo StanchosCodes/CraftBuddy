@@ -4,6 +4,7 @@ using CraftBuddy.Web.ViewModels.Workshop;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using CraftBuddy.Web.Infrastructure.Extensions;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -26,6 +27,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = CrafterRoleName)]
         public IActionResult Add()
         {
             AddEditWorkshopViewModel workshopModel = new AddEditWorkshopViewModel();
@@ -34,6 +36,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> Add(AddEditWorkshopViewModel workshopModel)
         {
             if (!ModelState.IsValid)
@@ -59,6 +62,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> Edit(int id)
         {
             if (!this.User?.Identity?.IsAuthenticated ?? false)
@@ -93,6 +97,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> Edit(int id, AddEditWorkshopViewModel editedWorkshop)
         {
             if (!ModelState.IsValid)
@@ -133,6 +138,7 @@ namespace CraftBuddy.Web.Controllers
             return View(workshopDetails);
         }
 
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> Delete(int id)
         {
             Workshop workshopToDelete = await this.workshopService.GetWorkshopAsync(id);

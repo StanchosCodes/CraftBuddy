@@ -4,6 +4,7 @@ using CraftBuddy.Web.Infrastructure.Extensions;
 using CraftBuddy.Web.ViewModels.Article;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -25,8 +26,10 @@ namespace CraftBuddy.Web.Controllers
 			return View(articles);
 		}
 
+
 		[HttpGet]
-		public IActionResult Add()
+        [Authorize(Roles = CrafterRoleName)]
+        public IActionResult Add()
 		{
 			AddEditArticleViewModel articleModel = new AddEditArticleViewModel();
 
@@ -34,7 +37,8 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Add(AddEditArticleViewModel articleModel)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Add(AddEditArticleViewModel articleModel)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -79,7 +83,8 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> Edit(int id)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Edit(int id)
 		{
 			if (!this.User?.Identity?.IsAuthenticated ?? false)
 			{
@@ -111,7 +116,8 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Edit(int id, AddEditArticleViewModel editedArticle)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Edit(int id, AddEditArticleViewModel editedArticle)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -198,7 +204,8 @@ namespace CraftBuddy.Web.Controllers
 			return RedirectToAction("All", "Article");
 		}
 
-		public async Task<IActionResult> Delete(int id)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Delete(int id)
 		{
 			Article articleToDelete = await this.articleService.GetArticleAsync(id);
 

@@ -13,5 +13,7 @@
         public int ParticipantsCount { get; set; }
 
         public string ImagePath { get; set; } = null!;
-    }
+
+		public string CreatedOn { get; set; } = null!;
+	}
 }

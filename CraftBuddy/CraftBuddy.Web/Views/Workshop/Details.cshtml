@@ -1,7 +1,11 @@
 ﻿@model WorkshopDetailsViewModel
+@inject IWorkshopService workshopService;
 
 @{
-    ViewBag.Title = "Workshop Details";
+	ViewBag.Title = "Workshop Details";
+	var userId = User.GetId();
+	var parsedUserId = Guid.Parse(userId!);
+	bool isJoined = await workshopService.IsJoinedAsync(parsedUserId, Model.Id);
 }
 
 
@@ -29,14 +33,23 @@
 
             <form class="input-group-sm " id="myForm" onsubmit="customConfirm(event)" asp-controller="Workshop" asp-action="Delete" asp-route-id="@Model.Id">
                     <input type="submit" value="Delete" class="fs-6 btn btn-danger mb-3 w-100 p-3 fw-bold" />
-            </form>
-        }
+			</form>
+		}
 		else
-            {
-                <form class="input-group-sm" asp-controller="Workshop" asp-action="Join" asp-route-id="@Model.Id">
+		{
+			if (isJoined)
+			{
+				<form class="input-group-sm " asp-controller="Workshop" asp-action="Leave" asp-route-id="@Model.Id">
+					<input type="submit" value="Leave the Workshop" class="fs-6 btn btn-danger mb-3 w-100 p-3 fw-bold" />
+				</form>
+			}
+			else
+			{
+				<form class="input-group-sm" asp-controller="Workshop" asp-action="Join" asp-route-id="@Model.Id">
                     <input type="submit" value="Participate" class="fs-6 btn btn-info mb-3 w-100 p-3 fw-bold" />
                 </form>
-            }
+			}
+        }
 
     </div>
 </div>

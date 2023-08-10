@@ -25,9 +25,12 @@ namespace CraftBuddy.Services.Data
 					Id = a.Id,
 					Title = a.Title,
 					Crafter = a.Crafter.UserName,
-					LikesCount = a.LikesCount
+					LikesCount = a.LikesCount,
+					CreatedOn = a.CreatedOn.ToString("f")
 				})
 				.ToListAsync();
+
+			articles = articles.OrderByDescending(a => a.CreatedOn);
 
 			return articles;
 		}

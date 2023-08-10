@@ -115,6 +115,7 @@ namespace CraftBuddy.Services.Data
         {
             IEnumerable<CrafterViewModel> crafters = await this.context
                 .Users
+                .Where(u => u.IsCrafter == true)
                 .Select(u => new CrafterViewModel()
                 {
                     Id = u.Id,

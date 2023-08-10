@@ -19,7 +19,6 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
-		[AllowAnonymous]
 		public IActionResult Login()
 		{
 			if (User?.Identity?.IsAuthenticated ?? false)
@@ -33,7 +32,6 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpPost]
-		[AllowAnonymous]
 		public async Task<IActionResult> Login(UserLoginViewModel model)
 		{
 			if (!ModelState.IsValid)
@@ -42,11 +40,6 @@ namespace CraftBuddy.Web.Controllers
 			}
 
 			var user = await this.userManager.FindByNameAsync(model.Username);
-
-			if (user == null)
-			{
-				ModelState.AddModelError("", "Invalid Username");
-			}
 
 			if (user != null)
 			{

@@ -28,9 +28,12 @@ namespace CraftBuddy.Services.Data
                     StartDate = w.StartDate.ToString("f"),
                     ImagePath = w.ImagePath,
                     Organiser = w.Organiser.UserName,
-                    ParticipantsCount = w.ParticipantsCount
-                })
+                    ParticipantsCount = w.ParticipantsCount,
+                    CreatedOn = w.CreatedOn.ToString("f")
+				})
                 .ToListAsync();
+
+            workshops = workshops.OrderByDescending(w => w.CreatedOn);
 
             return workshops;
         }

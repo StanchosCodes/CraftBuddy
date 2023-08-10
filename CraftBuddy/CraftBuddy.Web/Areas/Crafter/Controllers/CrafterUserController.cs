@@ -50,7 +50,8 @@ namespace CraftBuddy.Web.Areas.Crafter.Controllers
 			{
 				UserName = model.Username,
 				Email = model.Email,
-				PhoneNumber = model.PhoneNumber
+				PhoneNumber = model.PhoneNumber,
+				IsCrafter = true
 			};
 
 			IdentityResult result = await userManager.CreateAsync(user, model.Password);

@@ -130,7 +130,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("CrafterId");
 
-                    b.ToTable("Articles");
+                    b.ToTable("Articles", (string)null);
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.ArticleApplicationUser", b =>
@@ -145,7 +145,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("ArticlesApplicationUsers");
+                    b.ToTable("ArticlesApplicationUsers", (string)null);
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.Order", b =>
@@ -181,7 +181,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("StatusId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.OrderStatus", b =>
@@ -199,7 +199,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("OrderStatuses");
+                    b.ToTable("OrderStatuses", (string)null);
 
                     b.HasData(
                         new
@@ -260,7 +260,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("TypeId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.ProductOrder", b =>
@@ -275,7 +275,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("ProductsOrders");
+                    b.ToTable("ProductsOrders", (string)null);
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.ProductType", b =>
@@ -293,7 +293,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductTypes");
+                    b.ToTable("ProductTypes", (string)null);
 
                     b.HasData(
                         new
@@ -362,7 +362,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("OrganiserId");
 
-                    b.ToTable("Workshops");
+                    b.ToTable("Workshops", (string)null);
                 });
 
             modelBuilder.Entity("CraftBuddy.Data.Models.WorkshopParticipant", b =>
@@ -377,7 +377,7 @@ namespace CraftBuddy.Data.Migrations
 
                     b.HasIndex("ParticipantId");
 
-                    b.ToTable("WorkshopsParticipants");
+                    b.ToTable("WorkshopsParticipants", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>

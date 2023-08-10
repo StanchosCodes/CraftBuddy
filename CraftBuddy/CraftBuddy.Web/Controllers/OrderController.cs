@@ -5,6 +5,7 @@ using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using CraftBuddy.Web.Infrastructure.Extensions;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -38,6 +39,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> AllWaiting()
         {
             var currentUserId = this.User.GetId();
@@ -55,6 +57,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> AllCrafted()
         {
             var currentUserId = this.User.GetId();
@@ -219,6 +222,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> Edit(Guid id)
         {
             if (!this.User?.Identity?.IsAuthenticated ?? false)
@@ -259,6 +263,7 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = CrafterRoleName)]
         public async Task<IActionResult> Edit(Guid id, AddEditCustomOrderViewModel editCustomOrderModel)
         {
             if (!ModelState.IsValid)

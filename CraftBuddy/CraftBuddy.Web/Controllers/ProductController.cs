@@ -5,6 +5,7 @@ using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using CraftBuddy.Web.Infrastructure.Extensions;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Web.Controllers
 {
@@ -21,7 +22,6 @@ namespace CraftBuddy.Web.Controllers
         }
 
         [HttpGet]
-		[AllowAnonymous]
 		public async Task<IActionResult> All([FromQuery]AllProductsQueryModel queryModel)
 		{
 			AllFilteredProductsViewModel sortedProducts = this.productService.GetSortedProducts(queryModel);
@@ -37,7 +37,8 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> Add()
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Add()
 		{
 			if (!this.User?.Identity?.IsAuthenticated ?? false)
 			{
@@ -55,7 +56,8 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Add(AddEditProductViewModel addProductModel)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Add(AddEditProductViewModel addProductModel)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -95,7 +97,8 @@ namespace CraftBuddy.Web.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> Edit(int id)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Edit(int id)
 		{
             if (!this.User?.Identity?.IsAuthenticated ?? false)
             {
@@ -131,7 +134,8 @@ namespace CraftBuddy.Web.Controllers
         }
 
 		[HttpPost]
-		public async Task<IActionResult> Edit(int id, AddEditProductViewModel editModel)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Edit(int id, AddEditProductViewModel editModel)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -158,7 +162,8 @@ namespace CraftBuddy.Web.Controllers
 			return RedirectToAction("All", "Product");
         }
 
-		public async Task<IActionResult> Delete(int id)
+        [Authorize(Roles = CrafterRoleName)]
+        public async Task<IActionResult> Delete(int id)
 		{
             Product productToDelete = await this.productService.GetProductAsync(id);
 

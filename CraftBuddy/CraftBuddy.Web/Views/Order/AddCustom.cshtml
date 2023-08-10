@@ -25,13 +25,21 @@
             <div class="mb-3">
                 <label asp-for="@Model.CrafterId" class="form-label">Crafter</label>
                 <select asp-for="@Model.CrafterId" class="form-control">
-                    @foreach (var crafter in Model.Crafters)
+                    @if (Model.Crafters.Any())
                     {
-                        @if (currentUserName != crafter.Username)
+                        @foreach (var crafter in Model.Crafters)
                         {
-                            <option value="@crafter.Id">@crafter.Username</option>
+                            @if (currentUserName != crafter.Username)
+                            {
+                                <option value="@crafter.Id">@crafter.Username</option>
+                            }
                         }
                     }
+                    else
+                    {
+                        <option value="">No crafters available</option>
+                    }
+
                 </select>
                 <span asp-validation-for="CrafterId" class="text-danger"></span>
             </div>
