@@ -22,39 +22,105 @@
                     <ul class="navbar-nav flex-grow-1">
                         @if (this.User?.Identity?.IsAuthenticated ?? false)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="All">All Products</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Add">Add a Product</a>
-                            </li> 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="All">My Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AddCustom">Order a Custom Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AllWaiting">Waiting Orders</a>
-                            </li>
-                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AllCrafted">Crafted Orders</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="All">All Workshops</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Add">Add Workshop</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Joined">Joined Workshops</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="Add">Add Article</a>
-                            </li>
+                            if (this.User?.IsInRole(CrafterRoleName) ?? false)
+                            {
+                                <li class="nav-item-dropdown me-1">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Products</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="All">All Products</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Add">Add a Product</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item-dropdown me-1">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Orders</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="All">My Orders</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AddCustom">Order a Custom Product</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AllWaiting">Waiting Orders</a>
+                                            </li>
+                                             <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AllCrafted">Crafted Orders</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item-dropdown me-1">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Workshops</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="All">All Workshops</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Add">Add Workshop</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Joined">Joined Workshops</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item-dropdown me-1">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Blog</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Blog</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="Add">Add Article</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="All">All Products</a>
+                                </li>
+                                <li class="nav-item-dropdown me-1">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Orders</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="All">My Orders</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="AddCustom">Order a Custom Product</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item-dropdown me-1">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">Workshops</button>
+                                        <ul class="dropdown-menu">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="All">All Workshops</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-dark" asp-area="" asp-controller="Workshop" asp-action="Joined">Joined Workshops</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="All">Blog</a>
+                                </li>
+                            }
                         }
                         else
                         {
@@ -74,9 +140,9 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" style="background-color:linen">
+    <footer class="border-top mt-3 footer text-muted" style="background-color:linen;">
         <div class="container">
-            &copy; @DateTime.UtcNow.Year - CraftBuddy
+            &copy; 2023 - @DateTime.UtcNow.Year - CraftBuddy
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

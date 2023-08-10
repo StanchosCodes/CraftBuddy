@@ -26,6 +26,12 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 	.AddRoles<IdentityRole<Guid>>()
 	.AddEntityFrameworkStores<CraftBuddyDbContext>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+	options.LoginPath = "/Identity/Login";
+});
+
 builder.Services
 	.AddControllersWithViews()
 	.AddMvcOptions(options =>
@@ -72,6 +78,8 @@ app.UseEndpoints(endpoints =>
 	endpoints.MapControllerRoute(
 		name: "default",
 		pattern: "{controller=Home}/{action=Index}/{id?}");
+
+	endpoints.MapDefaultControllerRoute();
 });
 
 app.MapRazorPages();

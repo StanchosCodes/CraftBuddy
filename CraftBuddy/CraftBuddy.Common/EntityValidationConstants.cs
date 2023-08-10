@@ -5,7 +5,13 @@
 		public static class ApplicationUser
 		{
 			public const int EmailMaxLength = 60;
+			public const int EmailMinLength = 20;
+
 			public const int UserNameMaxLength = 20;
+			public const int UserNameMinLength = 4;
+
+			public const int PasswordMaxLength = 100;
+			public const int PasswordMinLength = 6;
 		}
 
 		public static class Article

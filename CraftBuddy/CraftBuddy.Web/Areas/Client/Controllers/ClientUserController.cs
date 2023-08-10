@@ -1,45 +1,44 @@
-﻿using CraftBuddy.Services.Data.Interfaces;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using CraftBuddy.Data.Models;
 using CraftBuddy.Web.ViewModels.User;
-using static CraftBuddy.Common.GeneralConstants;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using CraftBuddy.Data.Models;
+using Microsoft.AspNetCore.Mvc;
+using static CraftBuddy.Common.GeneralConstants;
 
-namespace CraftBuddy.Web.Areas.Crafter.Controllers
+namespace CraftBuddy.Web.Areas.Client.Controllers
 {
-	public class CrafterUserController : BaseCrafterController
+	public class ClientUserController : BaseClientController
 	{
 		private readonly UserManager<ApplicationUser> userManager;
 		private readonly SignInManager<ApplicationUser> signInManager;
 		private readonly RoleManager<IdentityRole<Guid>> roleManager;
 
-        public CrafterUserController(UserManager<ApplicationUser> userManager,
-									 SignInManager<ApplicationUser> signInManager,
-									 RoleManager<IdentityRole<Guid>> roleManager)
+        public ClientUserController(UserManager<ApplicationUser> userManager,
+									SignInManager<ApplicationUser> signInManager,
+									RoleManager<IdentityRole<Guid>> roleManager)
         {
 			this.userManager = userManager;
 			this.signInManager = signInManager;
 			this.roleManager = roleManager;
-        }
+		}
 
-        [HttpGet]
+		[HttpGet]
 		[AllowAnonymous]
 		public IActionResult Register()
 		{
 			if (User?.Identity?.IsAuthenticated ?? false)
 			{
-				return RedirectToAction("Index", "Home", new { Area = CrafterAreaName });
+				return RedirectToAction("Index", "Home", new { Area = ClientAreaName });
 			}
 
-			CrafterRegisterViewModel registerModel = new CrafterRegisterViewModel();
+			ClientRegisterViewModel registerModel = new ClientRegisterViewModel();
 
 			return View(registerModel);
 		}
 
 		[HttpPost]
 		[AllowAnonymous]
-		public async Task<IActionResult> Register(CrafterRegisterViewModel model)
+		public async Task<IActionResult> Register(ClientRegisterViewModel model)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -49,15 +48,14 @@ namespace CraftBuddy.Web.Areas.Crafter.Controllers
 			ApplicationUser user = new ApplicationUser()
 			{
 				UserName = model.Username,
-				Email = model.Email,
-				PhoneNumber = model.PhoneNumber
+				Email = model.Email
 			};
 
 			IdentityResult result = await userManager.CreateAsync(user, model.Password);
 
-			IdentityRole<Guid> crafterRole = await roleManager.FindByNameAsync(CrafterRoleName);
+			IdentityRole<Guid> clientRole = await roleManager.FindByNameAsync(ClientRoleName);
 
-			await userManager.AddToRoleAsync(user, crafterRole.Name);
+			await userManager.AddToRoleAsync(user, clientRole.Name);
 
 
 			if (result.Succeeded)

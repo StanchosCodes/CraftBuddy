@@ -28,9 +28,4 @@
     <ProjectReference Include="..\CraftBuddy.Web.ViewModels\CraftBuddy.Web.ViewModels.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Areas\Crafter\ViewModels\" />
-    <Folder Include="Areas\Crafter\Views\" />
-  </ItemGroup>
-
 </Project>

@@ -21,7 +21,7 @@ namespace CraftBuddy.Data
 
                     if (context != null && !context.Roles.Any(r => r.Name == role))
                     {
-                        _ = roleStore?.CreateAsync(new IdentityRole<Guid>(role), CancellationToken.None).Result;
+                        _ = roleStore?.CreateAsync(new IdentityRole<Guid>(role) { NormalizedName = role.ToUpper() }, CancellationToken.None).Result;
                     }
                 }
 
