@@ -1,5 +1,5 @@
 ﻿using System.Security.Claims;
-using static CraftBuddy.Common.RolesConstants;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Web.Infrastructure.Extensions
 {

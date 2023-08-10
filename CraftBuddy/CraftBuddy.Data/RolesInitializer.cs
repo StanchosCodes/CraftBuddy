@@ -1,6 +1,7 @@
 ﻿using CraftBuddy.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Data
 {
@@ -12,7 +13,7 @@ namespace CraftBuddy.Data
             {
                 CraftBuddyDbContext? context = scope.ServiceProvider.GetService<CraftBuddyDbContext>();
 
-                string[] roles = new string[] { "Crafter", "Client" };
+                string[] roles = new string[] { CrafterRoleName, ClientRoleName };
 
                 foreach (string role in roles)
                 {
