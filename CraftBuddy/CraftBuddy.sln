@@ -3,25 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Web", "CraftBuddy.Web\CraftBuddy.Web.csproj", "{A8347FA6-CF64-4C90-9C44-97F80EB9DA1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Web", "CraftBuddy.Web\CraftBuddy.Web.csproj", "{A8347FA6-CF64-4C90-9C44-97F80EB9DA1A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{124F431B-2826-4D60-9C10-B81042C22A5E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{57D79535-0B5A-4839-B55B-9AE38710C77B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Data", "CraftBuddy.Data\CraftBuddy.Data.csproj", "{1927D989-434B-45B6-9C50-B1F646200722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Data", "CraftBuddy.Data\CraftBuddy.Data.csproj", "{1927D989-434B-45B6-9C50-B1F646200722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Data.Models", "CraftBuddy.Data.Models\CraftBuddy.Data.Models.csproj", "{59326FBA-B021-41D3-A270-37D01287555B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Data.Models", "CraftBuddy.Data.Models\CraftBuddy.Data.Models.csproj", "{59326FBA-B021-41D3-A270-37D01287555B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3DF937FC-50EB-41A6-8410-5D2EF0883338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Services.Data", "CraftBuddy.Services.Data\CraftBuddy.Services.Data.csproj", "{0B56B9E4-B4A4-4FA1-8791-65080295D09F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Services.Data", "CraftBuddy.Services.Data\CraftBuddy.Services.Data.csproj", "{0B56B9E4-B4A4-4FA1-8791-65080295D09F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Web.Infrastructure", "CraftBuddy.Web.Infrastructure\CraftBuddy.Web.Infrastructure.csproj", "{05067BF3-A734-4131-BDE5-13F5796BA669}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Web.Infrastructure", "CraftBuddy.Web.Infrastructure\CraftBuddy.Web.Infrastructure.csproj", "{05067BF3-A734-4131-BDE5-13F5796BA669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Web.ViewModels", "CraftBuddy.Web.ViewModels\CraftBuddy.Web.ViewModels.csproj", "{9261299B-5DDF-4F5D-9D85-8F9389813E41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Web.ViewModels", "CraftBuddy.Web.ViewModels\CraftBuddy.Web.ViewModels.csproj", "{9261299B-5DDF-4F5D-9D85-8F9389813E41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Common", "CraftBuddy.Common\CraftBuddy.Common.csproj", "{75EF2066-ACD8-45F0-972A-A63A5A824623}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Common", "CraftBuddy.Common\CraftBuddy.Common.csproj", "{75EF2066-ACD8-45F0-972A-A63A5A824623}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D51AC42B-1C1E-45B3-8FDE-5DCE126C7C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Services.Tests", "CraftBuddy.Services.Tests\CraftBuddy.Services.Tests.csproj", "{E684AADB-44D5-4DCC-A2B6-3BF882180E5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{75EF2066-ACD8-45F0-972A-A63A5A824623}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75EF2066-ACD8-45F0-972A-A63A5A824623}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75EF2066-ACD8-45F0-972A-A63A5A824623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E684AADB-44D5-4DCC-A2B6-3BF882180E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E684AADB-44D5-4DCC-A2B6-3BF882180E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E684AADB-44D5-4DCC-A2B6-3BF882180E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E684AADB-44D5-4DCC-A2B6-3BF882180E5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,7 @@ Global
 		{0B56B9E4-B4A4-4FA1-8791-65080295D09F} = {3DF937FC-50EB-41A6-8410-5D2EF0883338}
 		{05067BF3-A734-4131-BDE5-13F5796BA669} = {57D79535-0B5A-4839-B55B-9AE38710C77B}
 		{9261299B-5DDF-4F5D-9D85-8F9389813E41} = {57D79535-0B5A-4839-B55B-9AE38710C77B}
+		{E684AADB-44D5-4DCC-A2B6-3BF882180E5D} = {D51AC42B-1C1E-45B3-8FDE-5DCE126C7C19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3819894A-F0C6-4D12-AE20-E20E4F35BB1E}

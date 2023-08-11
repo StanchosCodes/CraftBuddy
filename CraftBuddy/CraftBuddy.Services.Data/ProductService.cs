@@ -132,14 +132,10 @@ namespace CraftBuddy.Services.Data
 
             if (product?.IsDeleted == true)
             {
-#pragma warning disable CS8603 // Possible null reference return.
-                return null;
-#pragma warning restore CS8603 // Possible null reference return.
+                return null!;
             }
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return product;
-#pragma warning restore CS8603 // Possible null reference return.
+            return product!;
         }
 
         public async Task EditAsync(Product productToEdit, AddEditProductViewModel editModel)
