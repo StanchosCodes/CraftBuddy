@@ -30,7 +30,9 @@ namespace CraftBuddy.Services.Data
 				})
 				.ToListAsync();
 
-			articles = articles.OrderByDescending(a => a.CreatedOn);
+			articles = articles
+				.OrderByDescending(a => a.CreatedOn)
+				.ThenByDescending(a => a.Id);
 
 			return articles;
 		}

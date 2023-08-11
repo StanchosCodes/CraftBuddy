@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-        <form method="post">
+        <form method="post" id="myForm" onsubmit="notify(event)">
             <div class="mb-3">
                 <label asp-for="@Model.ProductTypeId" class="form-label">Product Type</label>
                 <select asp-for="@Model.ProductTypeId" class="form-control">
@@ -68,4 +68,21 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        function notify(e)
+        {
+            e = e || window.event;
+			e.preventDefault();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Succesfully ordered custom product!',
+                showConfirmButton: false,
+                timer: 1500
+            }).then((result) => {
+                    const myForm = document.getElementById("myForm");
+				    myForm.submit();
+                })
+        }
+    </script>
 }

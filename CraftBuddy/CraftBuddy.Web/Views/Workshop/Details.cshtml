@@ -45,7 +45,7 @@
 			}
 			else
 			{
-				<form class="input-group-sm" asp-controller="Workshop" asp-action="Join" asp-route-id="@Model.Id">
+				<form class="input-group-sm" id="myForm" onsubmit="notify(event)" asp-controller="Workshop" asp-action="Join" asp-route-id="@Model.Id">
                     <input type="submit" value="Participate" class="fs-6 btn btn-info mb-3 w-100 p-3 fw-bold" />
                 </form>
 			}
@@ -93,4 +93,21 @@
 			  })
         }
 	</script>
+	<script>
+        function notify(e)
+        {
+            e = e || window.event;
+			e.preventDefault();
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Succesfully joined workshop!',
+                showConfirmButton: false,
+                timer: 1500
+            }).then((result) => {
+                    const myForm = document.getElementById("myForm");
+				    myForm.submit();
+                })
+        }
+    </script>
 }
