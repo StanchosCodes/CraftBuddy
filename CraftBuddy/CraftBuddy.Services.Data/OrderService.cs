@@ -115,7 +115,7 @@ namespace CraftBuddy.Services.Data
         {
             IEnumerable<CrafterViewModel> crafters = await this.context
                 .Users
-                .Where(u => u.IsCrafter == true)
+                .Where(u => u.IsCrafter == true && u.IsDeleted == false)
                 .Select(u => new CrafterViewModel()
                 {
                     Id = u.Id,
@@ -220,9 +220,7 @@ namespace CraftBuddy.Services.Data
                 .Orders
                 .FindAsync(id);
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return order;
-#pragma warning restore CS8603 // Possible null reference return.
+            return order!;
         }
 
         public async Task<ProductOrder> GetProductOrderAsync(Guid orderId)
@@ -232,9 +230,7 @@ namespace CraftBuddy.Services.Data
                 .Include(p => p.Product)
                 .FirstOrDefaultAsync(po => po.OrderId == orderId);
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return productOrder;
-#pragma warning restore CS8603 // Possible null reference return.
+            return productOrder!;
         }
 
         public async Task EditAsync(Order orderToEdit, AddEditCustomOrderViewModel editCustomOrderModel)
@@ -247,25 +243,32 @@ namespace CraftBuddy.Services.Data
 
         public async Task<OrderDetailsViewModel> GetDetailsAsync(Guid id, Guid userId, string username, ProductDetailsViewModel product)
         {
-            OrderDetailsViewModel? orderDetails = await this.context
-                .Orders
-                .Where(o => o.Id == id && (o.ClientId == userId || username == product.Crafter))
-                .Select(o => new OrderDetailsViewModel()
-                {
-                    Id = o.Id,
-                    Amount = o.Amount ?? 0,
-                    Status = o.Status.Name,
-                    DeliveryAddress = o.DeliveryAddress,
-                    ClientPhoneNumber = o.ClientPhoneNumber,
-                    CreatedOn = o.CreatedOn.ToString("f"),
-                    Type = product.Type,
-                    Description = product.Description,
-                    ImagePath = product.ImagePath,
-                    Crafter = product.Crafter
-                })
-                .FirstOrDefaultAsync();
+            try
+            {
+				OrderDetailsViewModel? orderDetails = await this.context
+				.Orders
+				.Where(o => o.Id == id && (o.ClientId == userId || username == product.Crafter))
+				.Select(o => new OrderDetailsViewModel()
+				{
+					Id = o.Id,
+					Amount = o.Amount ?? 0,
+					Status = o.Status.Name,
+					DeliveryAddress = o.DeliveryAddress,
+					ClientPhoneNumber = o.ClientPhoneNumber,
+					CreatedOn = o.CreatedOn.ToString("f"),
+					Type = product.Type,
+					Description = product.Description,
+					ImagePath = product.ImagePath,
+					Crafter = product.Crafter
+				})
+				.FirstOrDefaultAsync();
 
-            return orderDetails!;
+				return orderDetails!;
+			}
+            catch (Exception)
+            {
+                throw new ArgumentNullException();
+            }
         }
     }
 }

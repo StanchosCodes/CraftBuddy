@@ -28,7 +28,7 @@ namespace CraftBuddy.Services.Tests
 			this.contextB = new CraftBuddyDbContext(this.contextOptions);
 
 			//this.context.Database.EnsureDeleted();
-			this.context.Database.EnsureCreated();
+			//this.context.Database.EnsureCreated();
 
 			SeedDatabase(this.context);
 
@@ -78,50 +78,185 @@ namespace CraftBuddy.Services.Tests
 			Assert.IsNull(resultProduct);
 		}
 
-		//[Test]
-		//public void GetSortedProductsShouldReturnSortedByDateDescending()
-		//{
-		//	AllFilteredProductsViewModel expectedResult = new AllFilteredProductsViewModel()
-		//	{
-		//		TotalProducts = 4,
-		//		Products = new HashSet<ProductViewModel>()
-		//		{
-		//			new ProductViewModel()
-		//			{
-		//				Id = HatProduct.Id
-		//			},
-		//			new ProductViewModel()
-		//			{
-		//				Id = BannerProduct.Id
-		//			},
-		//			new ProductViewModel()
-		//			{
-		//				Id = TopperProduct.Id
-		//			},
-		//			new ProductViewModel()
-		//			{
-		//				Id = FlagProduct.Id
-		//			}
-		//		}
-		//	};
+		[Test]
+		public void GetSortedProductsShouldReturnSortedByDateDescending()
+		{
+			AllFilteredProductsViewModel expectedResult = new AllFilteredProductsViewModel()
+			{
+				TotalProducts = 4,
+				Products = new HashSet<ProductViewModel>()
+				{
+					new ProductViewModel()
+					{
+						Id = TopperProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = FlagProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = BannerProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = HatProduct.Id
+					}
+				}
+			};
 
-		//	AllProductsQueryModel queryModel = new AllProductsQueryModel()
-		//	{
-		//		TypeId = 0,
-		//		CrafterId = default,
-		//		Sorting = Newest,
-		//		ProductsPerPage = 4,
-		//		CurrentPage = 1
-		//	};
+			AllProductsQueryModel queryModel = new AllProductsQueryModel()
+			{
+				TypeId = 0,
+				CrafterId = default,
+				Sorting = Newest,
+				ProductsPerPage = 4,
+				CurrentPage = 1
+			};
 
-		//	AllFilteredProductsViewModel filteredProducts = this.productService.GetSortedProducts(queryModel);
+			AllFilteredProductsViewModel filteredProducts = this.productService.GetSortedProducts(queryModel);
 
-		//	Assert.That(expectedResult.TotalProducts == filteredProducts.TotalProducts);
-		//	Assert.That(expectedResult.Products.ElementAt(0).Id == filteredProducts.Products.ElementAt(0).Id);
-		//	Assert.That(expectedResult.Products.ElementAt(1).Id == filteredProducts.Products.ElementAt(1).Id);
-		//	Assert.That(expectedResult.Products.ElementAt(2).Id == filteredProducts.Products.ElementAt(2).Id);
-		//	Assert.That(expectedResult.Products.ElementAt(3).Id == filteredProducts.Products.ElementAt(3).Id);
-		//}
+			Assert.That(expectedResult.TotalProducts == filteredProducts.TotalProducts);
+			Assert.That(expectedResult.Products.ElementAt(0).Id == filteredProducts.Products.ElementAt(0).Id);
+			Assert.That(expectedResult.Products.ElementAt(1).Id == filteredProducts.Products.ElementAt(1).Id);
+			Assert.That(expectedResult.Products.ElementAt(2).Id == filteredProducts.Products.ElementAt(2).Id);
+			Assert.That(expectedResult.Products.ElementAt(3).Id == filteredProducts.Products.ElementAt(3).Id);
+		}
+
+		[Test]
+		public void GetSortedProductsShouldReturnSortedByDateAscending()
+		{
+			AllFilteredProductsViewModel expectedResult = new AllFilteredProductsViewModel()
+			{
+				TotalProducts = 4,
+				Products = new HashSet<ProductViewModel>()
+				{
+					new ProductViewModel()
+					{
+						Id = HatProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = BannerProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = FlagProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = TopperProduct.Id
+					}
+				}
+			};
+
+			AllProductsQueryModel queryModel = new AllProductsQueryModel()
+			{
+				TypeId = 0,
+				CrafterId = default,
+				Sorting = Oldest,
+				ProductsPerPage = 4,
+				CurrentPage = 1
+			};
+
+			AllFilteredProductsViewModel filteredProducts = this.productService.GetSortedProducts(queryModel);
+
+			Assert.That(expectedResult.TotalProducts == filteredProducts.TotalProducts);
+			Assert.That(expectedResult.Products.ElementAt(0).Id == filteredProducts.Products.ElementAt(0).Id);
+			Assert.That(expectedResult.Products.ElementAt(1).Id == filteredProducts.Products.ElementAt(1).Id);
+			Assert.That(expectedResult.Products.ElementAt(2).Id == filteredProducts.Products.ElementAt(2).Id);
+			Assert.That(expectedResult.Products.ElementAt(3).Id == filteredProducts.Products.ElementAt(3).Id);
+		}
+
+		[Test]
+		public void GetSortedProductsShouldReturnSortedByPriceAscending()
+		{
+			AllFilteredProductsViewModel expectedResult = new AllFilteredProductsViewModel()
+			{
+				TotalProducts = 4,
+				Products = new HashSet<ProductViewModel>()
+				{
+					new ProductViewModel()
+					{
+						Id = TopperProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = HatProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = FlagProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = BannerProduct.Id
+					}
+				}
+			};
+
+			AllProductsQueryModel queryModel = new AllProductsQueryModel()
+			{
+				TypeId = 0,
+				CrafterId = default,
+				Sorting = PriceAscending,
+				ProductsPerPage = 4,
+				CurrentPage = 1
+			};
+
+			AllFilteredProductsViewModel filteredProducts = this.productService.GetSortedProducts(queryModel);
+
+			Assert.That(expectedResult.TotalProducts == filteredProducts.TotalProducts);
+			Assert.That(expectedResult.Products.ElementAt(0).Id == filteredProducts.Products.ElementAt(0).Id);
+			Assert.That(expectedResult.Products.ElementAt(1).Id == filteredProducts.Products.ElementAt(1).Id);
+			Assert.That(expectedResult.Products.ElementAt(2).Id == filteredProducts.Products.ElementAt(2).Id);
+			Assert.That(expectedResult.Products.ElementAt(3).Id == filteredProducts.Products.ElementAt(3).Id);
+		}
+
+		[Test]
+		public void GetSortedProductsShouldReturnSortedByPriceDescending()
+		{
+			AllFilteredProductsViewModel expectedResult = new AllFilteredProductsViewModel()
+			{
+				TotalProducts = 4,
+				Products = new HashSet<ProductViewModel>()
+				{
+					new ProductViewModel()
+					{
+						Id = BannerProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = FlagProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = HatProduct.Id
+					},
+					new ProductViewModel()
+					{
+						Id = TopperProduct.Id
+					}
+				}
+			};
+
+			AllProductsQueryModel queryModel = new AllProductsQueryModel()
+			{
+				TypeId = 0,
+				CrafterId = default,
+				Sorting = PriceDescending,
+				ProductsPerPage = 4,
+				CurrentPage = 1
+			};
+
+			AllFilteredProductsViewModel filteredProducts = this.productService.GetSortedProducts(queryModel);
+
+			Assert.That(expectedResult.TotalProducts == filteredProducts.TotalProducts);
+			Assert.That(expectedResult.Products.ElementAt(0).Id == filteredProducts.Products.ElementAt(0).Id);
+			Assert.That(expectedResult.Products.ElementAt(1).Id == filteredProducts.Products.ElementAt(1).Id);
+			Assert.That(expectedResult.Products.ElementAt(2).Id == filteredProducts.Products.ElementAt(2).Id);
+			Assert.That(expectedResult.Products.ElementAt(3).Id == filteredProducts.Products.ElementAt(3).Id);
+		}
 
 		[Test]
 		public async Task GetProductTypesAsyncShouldReturnCorrectTypes()
@@ -179,69 +314,40 @@ namespace CraftBuddy.Services.Tests
 		}
 
 		[Test]
-		public async Task AddAsyncShouldThrowIfInvalidUserId()
+		public void AddAsyncShouldThrowIfAddProductModelIsNull()
 		{
-			AddEditProductViewModel addModel = new AddEditProductViewModel()
-			{
-				Description = "Very cute hat with a green pompon.",
-				Price = 10.00m,
-				TypeId = 1
-			};
-
 			var userId = Guid.NewGuid();
-
-			await this.productServiceB.AddAsync(userId, addModel);
 
 			Assert.ThrowsAsync<ArgumentException>(async () =>
 			{
-				await this.productService.AddAsync(userId, addModel);
+				await this.productServiceB.AddAsync(userId, null!);
 			});
 		}
 
 		[Test]
-		public async Task AddAsyncShouldThrowIfInvalidTypeId()
+		public async Task GetDetailsAsyncShouldReturnCorrectlyWithValidId()
 		{
-			AddEditProductViewModel addModel = new AddEditProductViewModel()
+			int productId = HatProduct.Id;
+
+			ProductDetailsViewModel expectedResult = new ProductDetailsViewModel()
 			{
-				Description = "Very cute hat with a green pompon.",
-				Price = 10.00m,
-				TypeId = 10
+				Id = HatProduct.Id,
+				Description = HatProduct.Description,
+				Type = "Hat",
+				Price = HatProduct.Price ?? 0,
+				ImagePath = HatProduct.ImagePath,
+				CreatedOn = HatProduct.CreatedOn
 			};
 
-			var userId = CrafterUser.Id;
+			ProductDetailsViewModel actualResult = await this.productService.GetDetailsAsync(productId);
 
-			await this.productServiceB.AddAsync(userId, addModel);
-
-			Assert.ThrowsAsync<ArgumentException>(async () =>
-			{
-				await this.productService.AddAsync(userId, addModel);
-			});
+			Assert.That(expectedResult.Id == actualResult.Id);
+			Assert.That(expectedResult.Description == actualResult.Description);
+			Assert.That(expectedResult.Type == actualResult.Type);
+			Assert.That(expectedResult.Price == actualResult.Price);
+			Assert.That(expectedResult.ImagePath == actualResult.ImagePath);
+			Assert.That(expectedResult.CreatedOn == actualResult.CreatedOn);
 		}
-
-		//[Test]
-		//public async Task GetDetailsAsyncShouldReturnCorrectlyWithValidId()
-		//{
-		//	int productId = BannerProduct.Id;
-
-		//ProductDetailsViewModel expectedResult = new ProductDetailsViewModel()
-		//{
-		//	Id = HatProduct.Id,
-		//	Description = HatProduct.Description,
-		//	Type = HatProduct.Type.Name,
-		//	Price = HatProduct.Price ?? 0,
-		//	ImagePath = HatProduct.ImagePath,
-		//	CreatedOn = HatProduct.CreatedOn
-		//};
-
-		//	ProductDetailsViewModel actualResult = await this.productService.GetDetailsAsync(productId);
-
-		//Assert.That(expectedResult.Id == actualResult.Id);
-		//Assert.That(expectedResult.Description == actualResult.Description);
-		//Assert.That(expectedResult.Type == actualResult.Type);
-		//Assert.That(expectedResult.Price == actualResult.Price);
-		//Assert.That(expectedResult.ImagePath == actualResult.ImagePath);
-		//Assert.That(expectedResult.CreatedOn == actualResult.CreatedOn);
-		//}
 
 		[Test]
 		public async Task GetDetailsAsyncShouldReturnNullWithInvalidId()
@@ -290,5 +396,11 @@ namespace CraftBuddy.Services.Tests
 
 			Assert.IsTrue(product.IsDeleted);
 		}
+
+		//[TearDown]
+		//public async Task TearDown()
+		//{
+		//	await this.context.Database.EnsureDeletedAsync();
+		//}
 	}
 }
