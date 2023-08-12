@@ -1,11 +1,11 @@
 using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.Infrastructure.ModelBinders;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

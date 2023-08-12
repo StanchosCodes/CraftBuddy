@@ -1,10 +1,10 @@
-﻿using CraftBuddy.Services.Data.Interfaces;
-using Microsoft.AspNetCore.Authorization;
+﻿using CraftBuddy.Data.Models;
 using Microsoft.AspNetCore.Mvc;
-using CraftBuddy.Web.ViewModels.User;
-using static CraftBuddy.Common.GeneralConstants;
 using Microsoft.AspNetCore.Identity;
-using CraftBuddy.Data.Models;
+using CraftBuddy.Web.ViewModels.User;
+using Microsoft.AspNetCore.Authorization;
+using CraftBuddy.Services.Data.Interfaces;
+using static CraftBuddy.Common.GeneralConstants;
 
 namespace CraftBuddy.Web.Areas.Crafter.Controllers
 {

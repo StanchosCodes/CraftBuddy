@@ -1,26 +1,26 @@
 ﻿using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
-using CraftBuddy.Web.ViewModels.Product;
 
 namespace CraftBuddy.Services.Tests
 {
 	public static class DatabaseSeeder
 	{
-		public static ApplicationUser CrafterUser;
-		public static ApplicationUser ClientUser;
-		public static Product HatProduct;
-		public static Product BannerProduct;
-		public static Product TopperProduct;
-		public static Product FlagProduct;
-		public static ProductType HatType;
-		public static ProductType BannerType;
-		public static ProductType TopperType;
-		public static ProductType FlagType;
-		public static OrderStatus Waiting;
-		public static OrderStatus Crafting;
-		public static OrderStatus Crafted;
-		public static Order Order;
-		public static Workshop Workshop;
+		public static ApplicationUser CrafterUser = null!;
+		public static ApplicationUser ClientUser = null!;
+		public static Product HatProduct = null!;
+		public static Product BannerProduct = null!;
+		public static Product TopperProduct = null!;
+		public static Product FlagProduct = null!;
+		public static ProductType HatType = null!;
+		public static ProductType BannerType = null!;
+		public static ProductType TopperType = null!;
+		public static ProductType FlagType = null!;
+		public static OrderStatus Waiting = null!;
+		public static OrderStatus Crafting = null!;
+		public static OrderStatus Crafted = null!;
+		public static Order Order = null!;
+		public static Workshop NewWorkshop = null!;
+		public static Article NewArticle = null!;
 
 		public static void SeedDatabase(CraftBuddyDbContext context)
 		{
@@ -159,7 +159,7 @@ namespace CraftBuddy.Services.Tests
 				StatusId = 3
 			};
 
-			Workshop = new Workshop()
+			NewWorkshop = new Workshop()
 			{
 				Title = "Test",
 				Description = "Test test test",
@@ -171,6 +171,17 @@ namespace CraftBuddy.Services.Tests
 				ImagePath = "/img/Workshop.jpg",
 				CreatedOn = DateTime.Parse("2023-08-10 13:36:17.4469093"),
 				IsDeleted = false
+			};
+
+			NewArticle = new Article()
+			{
+				Title = "Very interesting article",
+				Description = "This article is a must.",
+				CrafterId = CrafterUser.Id,
+				Crafter = CrafterUser,
+				CreatedOn = DateTime.Parse("2023-08-10 13:37:36.9231461"),
+				IsDeleted = false,
+				LikesCount = 0
 			};
 
 			context.Users.Add(CrafterUser);
@@ -187,7 +198,8 @@ namespace CraftBuddy.Services.Tests
 			context.OrderStatuses.Add(Crafting);
 			context.OrderStatuses.Add(Crafted);
 			context.Orders.Add(Order);
-			context.Workshops.Add(Workshop);
+			context.Workshops.Add(NewWorkshop);
+			context.Articles.Add(NewArticle);
 			context.SaveChanges();
 		}
 	}

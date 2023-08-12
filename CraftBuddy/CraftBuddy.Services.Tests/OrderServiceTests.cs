@@ -1,11 +1,11 @@
 ﻿using CraftBuddy.Data;
-using CraftBuddy.Services.Data.Interfaces;
+using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data;
 using Microsoft.EntityFrameworkCore;
-using static CraftBuddy.Services.Tests.DatabaseSeeder;
-using CraftBuddy.Web.ViewModels.Product;
 using CraftBuddy.Web.ViewModels.Order;
-using CraftBuddy.Data.Models;
+using CraftBuddy.Web.ViewModels.Product;
+using CraftBuddy.Services.Data.Interfaces;
+using static CraftBuddy.Services.Tests.DatabaseSeeder;
 
 namespace CraftBuddy.Services.Tests
 {
@@ -312,19 +312,6 @@ namespace CraftBuddy.Services.Tests
 			Assert.That(expectedCraftingName == result.ElementAt(1).Name);
 			Assert.That(expectedCraftedName == result.ElementAt(2).Name);
 		}
-
-		//[Test]
-		//public async Task GetOrderStatusesAsyncShouldReturnEmptyIfNoOrderStatuses()
-		//{
-		//	this.contextB.OrderStatuses.RemoveRange(new OrderStatus[] { Waiting, Crafting, Crafted });
-		//	await this.contextB.SaveChangesAsync();
-
-		//	int expectedCount = 0;
-
-		//	IEnumerable<OrderStatusViewModel> result = await this.orderServiceB.GetOrderStatusesAsync();
-
-		//	Assert.That(expectedCount == result.Count());
-		//}
 
 		[Test]
 		public async Task GetOrderAsyncShouldReturnCorrectOrderById()

@@ -1,9 +1,9 @@
 ﻿using CraftBuddy.Data.Models;
-using CraftBuddy.Services.Data.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+using CraftBuddy.Services.Data.Interfaces;
 using CraftBuddy.Web.Infrastructure.Extensions;
 using static CraftBuddy.Common.GeneralConstants;
 

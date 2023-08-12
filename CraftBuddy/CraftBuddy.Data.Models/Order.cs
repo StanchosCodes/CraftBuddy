@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using static CraftBuddy.Common.EntityValidationConstants.Order;
 using static CraftBuddy.Common.OrderStatusConstants;
+using static CraftBuddy.Common.EntityValidationConstants.Order;
 
 namespace CraftBuddy.Data.Models
 {

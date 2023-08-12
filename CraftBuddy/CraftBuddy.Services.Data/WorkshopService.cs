@@ -1,8 +1,8 @@
 ﻿using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
-using CraftBuddy.Services.Data.Interfaces;
-using CraftBuddy.Web.ViewModels.Workshop;
 using Microsoft.EntityFrameworkCore;
+using CraftBuddy.Web.ViewModels.Workshop;
+using CraftBuddy.Services.Data.Interfaces;
 using static CraftBuddy.Common.ImagePathConstants.ImagePath;
 
 namespace CraftBuddy.Services.Data
@@ -68,9 +68,7 @@ namespace CraftBuddy.Services.Data
                 .Where(w => w.IsDeleted == false && w.Id == id)
                 .FirstOrDefaultAsync();
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return workshop;
-#pragma warning restore CS8603 // Possible null reference return.
+            return workshop!;
         }
 
         public async Task EditAsync(Workshop workshopToEdit, AddEditWorkshopViewModel editedModel)
@@ -102,9 +100,7 @@ namespace CraftBuddy.Services.Data
                 })
                 .FirstOrDefaultAsync();
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return workshopDetails;
-#pragma warning restore CS8603 // Possible null reference return.
+            return workshopDetails!;
         }
 
         public async Task DeleteAsync(Workshop workshopToDelete)
@@ -168,9 +164,7 @@ namespace CraftBuddy.Services.Data
             })
             .FirstOrDefaultAsync();
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return workshopModel;
-#pragma warning restore CS8603 // Possible null reference return.
+            return workshopModel!;
         }
 
         public async Task LeaveAsync(Guid userId, int workshopId)

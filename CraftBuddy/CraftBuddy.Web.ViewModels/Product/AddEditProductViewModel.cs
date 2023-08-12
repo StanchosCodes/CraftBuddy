@@ -1,10 +1,10 @@
-﻿using CraftBuddy.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CraftBuddy.Data.Models;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using static CraftBuddy.Common.EntityValidationConstants.Product;
 
 namespace CraftBuddy.Web.ViewModels.Product

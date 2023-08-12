@@ -1,9 +1,9 @@
 using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
 using CraftBuddy.Services.Data;
-using CraftBuddy.Services.Data.Interfaces;
-using CraftBuddy.Web.ViewModels.Product;
 using Microsoft.EntityFrameworkCore;
+using CraftBuddy.Web.ViewModels.Product;
+using CraftBuddy.Services.Data.Interfaces;
 using static CraftBuddy.Services.Tests.DatabaseSeeder;
 using static CraftBuddy.Web.ViewModels.Product.Enums.ProductSorting;
 
@@ -396,11 +396,5 @@ namespace CraftBuddy.Services.Tests
 
 			Assert.IsTrue(product.IsDeleted);
 		}
-
-		//[TearDown]
-		//public async Task TearDown()
-		//{
-		//	await this.context.Database.EnsureDeletedAsync();
-		//}
 	}
 }

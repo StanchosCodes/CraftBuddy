@@ -1,9 +1,9 @@
 ﻿using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
-using CraftBuddy.Services.Data.Interfaces;
-using CraftBuddy.Web.ViewModels.Product;
-using CraftBuddy.Web.ViewModels.Product.Enums;
 using Microsoft.EntityFrameworkCore;
+using CraftBuddy.Web.ViewModels.Product;
+using CraftBuddy.Services.Data.Interfaces;
+using CraftBuddy.Web.ViewModels.Product.Enums;
 using static CraftBuddy.Services.Data.Utilities.ServiceUtilities;
 
 namespace CraftBuddy.Services.Data

@@ -1,6 +1,5 @@
 ﻿using CraftBuddy.Data.Models;
 using CraftBuddy.Web.ViewModels.Product;
-using CraftBuddy.Web.ViewModels.Product.Enums;
 
 namespace CraftBuddy.Services.Data.Interfaces
 {

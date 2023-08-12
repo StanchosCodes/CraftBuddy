@@ -1,7 +1,7 @@
-﻿using CraftBuddy.Web.ViewModels.Order;
-using CraftBuddy.Web.ViewModels.Product.Enums;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using CraftBuddy.Web.ViewModels.Order;
 using System.ComponentModel.DataAnnotations;
+using CraftBuddy.Web.ViewModels.Product.Enums;
 
 namespace CraftBuddy.Web.ViewModels.Product
 {

@@ -1,11 +1,11 @@
 ﻿using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
-using CraftBuddy.Services.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using CraftBuddy.Web.ViewModels.Order;
 using CraftBuddy.Web.ViewModels.Product;
-using Microsoft.EntityFrameworkCore;
-using static CraftBuddy.Services.Data.Utilities.ServiceUtilities;
+using CraftBuddy.Services.Data.Interfaces;
 using static CraftBuddy.Common.OrderStatusConstants;
+using static CraftBuddy.Services.Data.Utilities.ServiceUtilities;
 
 namespace CraftBuddy.Services.Data
 {

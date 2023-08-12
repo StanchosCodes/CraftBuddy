@@ -1,8 +1,8 @@
 ﻿using CraftBuddy.Data.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using CraftBuddy.Web.ViewModels.User;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CraftBuddy.Web.Controllers
 {

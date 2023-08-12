@@ -1,8 +1,8 @@
 ﻿using CraftBuddy.Data;
 using CraftBuddy.Data.Models;
-using CraftBuddy.Services.Data.Interfaces;
-using CraftBuddy.Web.ViewModels.Article;
 using Microsoft.EntityFrameworkCore;
+using CraftBuddy.Web.ViewModels.Article;
+using CraftBuddy.Services.Data.Interfaces;
 
 namespace CraftBuddy.Services.Data
 {
@@ -37,14 +37,14 @@ namespace CraftBuddy.Services.Data
 			return articles;
 		}
 
-		public async Task AddAsync(Guid userId, AddEditArticleViewModel articalModel)
+		public async Task AddAsync(Guid userId, AddEditArticleViewModel articleModel)
 		{
 			try
 			{
 				Article newArticle = new Article()
 				{
-					Title = articalModel.Title,
-					Description = articalModel.Description,
+					Title = articleModel.Title,
+					Description = articleModel.Description,
 					CrafterId = userId
 				};
 
@@ -73,9 +73,7 @@ namespace CraftBuddy.Services.Data
 				})
 				.FirstOrDefaultAsync();
 
-#pragma warning disable CS8603 // Possible null reference return.
-			return articleDetailsModel;
-#pragma warning restore CS8603 // Possible null reference return.
+			return articleDetailsModel!;
 		}
 
 		public async Task<Article> GetArticleAsync(int id)
@@ -85,9 +83,7 @@ namespace CraftBuddy.Services.Data
 				.Where(a => a.Id == id && a.IsDeleted == false)
 				.FirstOrDefaultAsync();
 
-#pragma warning disable CS8603 // Possible null reference return.
-			return article;
-#pragma warning restore CS8603 // Possible null reference return.
+			return article!;
 		}
 
 		public async Task EditAsync(Article articleToEdit, AddEditArticleViewModel editedArticle)

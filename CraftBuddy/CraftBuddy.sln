@@ -24,6 +24,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CraftBuddy.Common", "CraftBuddy.Common\CraftBuddy.Common.csproj", "{75EF2066-ACD8-45F0-972A-A63A5A824623}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D51AC42B-1C1E-45B3-8FDE-5DCE126C7C19}"
+	ProjectSection(SolutionItems) = preProject
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftBuddy.Services.Tests", "CraftBuddy.Services.Tests\CraftBuddy.Services.Tests.csproj", "{E684AADB-44D5-4DCC-A2B6-3BF882180E5D}"
 EndProject

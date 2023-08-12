@@ -1,8 +1,8 @@
-﻿using CraftBuddy.Data.Models;
+﻿using System.Reflection;
+using CraftBuddy.Data.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CraftBuddy.Data
 {
