@@ -46,16 +46,28 @@
         {
             e = e || window.event;
 			e.preventDefault();
-            Swal.fire({
+            const myForm = document.getElementById("myForm");
+            const fieldOne = myForm.childNodes[3].childNodes[3].classList.contains("valid");
+            const fieldTwo = myForm.childNodes[5].childNodes[3].classList.contains("valid");
+            let isValid = false;
+
+            if (fieldOne && fieldTwo)
+            {
+                isValid = true;
+            }
+
+            if (isValid)
+            {
+                Swal.fire({
                 position: 'center',
                 icon: 'success',
                 title: 'Succesfully added product!',
                 showConfirmButton: false,
                 timer: 1500
-            }).then((result) => {
-                    const myForm = document.getElementById("myForm");
-				    myForm.submit();
-                })
+                }).then((result) => {
+                       myForm.submit();
+                });
+            }
         }
     </script>
 }

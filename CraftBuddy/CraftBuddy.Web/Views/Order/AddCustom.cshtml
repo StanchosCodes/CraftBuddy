@@ -73,16 +73,29 @@
         {
             e = e || window.event;
 			e.preventDefault();
-            Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Succesfully ordered custom product!',
-                showConfirmButton: false,
-                timer: 1500
-            }).then((result) => {
-                    const myForm = document.getElementById("myForm");
-				    myForm.submit();
-                })
+           const myForm = document.getElementById("myForm");
+           const fieldOne = myForm.childNodes[5].childNodes[3].classList.contains("valid");
+           const fieldTwo = myForm.childNodes[7].childNodes[3].classList.contains("valid");
+           const fieldThree = myForm.childNodes[9].childNodes[3].classList.contains("valid");
+           let isValid = false;
+
+           if (fieldOne && fieldTwo && fieldThree)
+           {
+               isValid = true;
+           }
+
+           if (isValid)
+           {
+               Swal.fire({
+               position: 'center',
+               icon: 'success',
+               title: 'Succesfully ordered custom product!',
+               showConfirmButton: false,
+               timer: 1500
+               }).then((result) => {
+                      myForm.submit();
+               });
+           }
         }
     </script>
 }
