@@ -41,8 +41,8 @@ You can choose to register as client or a crafter.
 
 # Register Pages
 <p align="center">
-  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/1cb628fd-8f0e-44ce-a206-4c281c6713be" width="48%" />
-  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3ecb2474-9b00-4c5a-82e5-a2bf262dab22" width="48%" />
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/1cb628fd-8f0e-44ce-a206-4c281c6713be" width="49%" />
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3ecb2474-9b00-4c5a-82e5-a2bf262dab22" width="49%" />
 </p>
 
 # Login Page
