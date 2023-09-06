@@ -2,15 +2,15 @@
 CraftBuddy is an ASP.NET Core MVC Web Project for final project at SoftUni.
 CraftBuddy is an online workshop where you can buy craft decorations for birthay parties or for what event you would like to.
 
-# Technical description
+📐 # Technical description
 The web app have two areas. One for crafters, who craft products and sell them and one for clients, who can buy already made products or describe exactly what product they want and send a request to a crafter to make it. On the other side, the crafter can control the status of the order and set a price after deciding how much would it cost to make it. There are two different forms for register of a crafter and a client.
 
 There also are workshop events and a blog which are controled by the crafters. The clients can participate in the workshops and read and like/dislike topics in the blog.
 
-# Front-end
+🎨 # Front-end
 There is one background for the login register home page and one background for all other pages. The images of the products are automatically set by the type of the product. There currently 4 types of products: Hat, Banner, Topper and a Flag. They are all party decorations. On the home page before you login, there is a carousel with example images of the products which is constantly changing. When you login you can sort the products on the home page as you desire: by price (ascending and descending), by type of the product or by the crafter of the products.
 
-# Used technologies
+📋 # Used technologies
 Entity Framework Core 6
 ASP.NET Core 6
 ASP.NET Core Areas
@@ -26,7 +26,7 @@ MVC Design Pattern
 In-Memory Database - for Unit Tests
 SQL Server - for Development
 
-# Database
+💼 # Database
 When migrations are applied the database is seeded only with the four product types and the three order statuses as they are needed from the beginning of the app. When the app is up and running you can register and explore.
 
 # Database Diagram
@@ -145,15 +145,15 @@ Add workshop page.
 Details about a product.
 ![Product Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3b8693e4-8096-405f-8ef9-8af5323e0c39)
 
-# Sweet alert messages
+✔️ # Sweet alert messages
 For all edit, add, join, leave, delete pages there is a sweet alert message.
 <p>
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/2c7751a4-c9fa-4942-869c-e237ac6e0b5c" width="49%" />
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d252aa41-4362-4a8f-a05d-8bd332654f8c" width="49%" />
 </p>
 
-# Author
+🧑‍💻 # Author
 [Stanislav Stamatov](https://www.linkedin.com/in/stanislav-stamatov-402647255)
 
-# Feedback would be appreciated
+👍 # Feedback would be appreciated
 If you like my project give it a star. ⭐
