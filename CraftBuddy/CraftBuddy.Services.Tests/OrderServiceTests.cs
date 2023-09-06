@@ -17,8 +17,8 @@ namespace CraftBuddy.Services.Tests
 		private IOrderService orderService;
 		private IOrderService orderServiceB;
 
-		[OneTimeSetUp]
-		public void OneTimeSetUp()
+		[SetUp]
+		public void SetUp()
 		{
 			this.contextOptions = new DbContextOptionsBuilder<CraftBuddyDbContext>()
 				.UseInMemoryDatabase("CraftBuddyInMemory" + Guid.NewGuid().ToString())
@@ -28,7 +28,9 @@ namespace CraftBuddy.Services.Tests
 			this.contextB = new CraftBuddyDbContext(this.contextOptions);
 
 			this.context.Database.EnsureDeleted();
+			this.contextB.Database.EnsureDeleted();
 			this.context.Database.EnsureCreated();
+			this.contextB.Database.EnsureCreated();
 
 			SeedDatabase(this.context);
 

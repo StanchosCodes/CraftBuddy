@@ -17,8 +17,8 @@ namespace CraftBuddy.Services.Tests
 		private IProductService productService;
 		private IProductService productServiceB;
 
-		[OneTimeSetUp]
-		public void OneTimeSetUp()
+		[SetUp]
+		public void SetUp()
 		{
 			this.contextOptions = new DbContextOptionsBuilder<CraftBuddyDbContext>()
 				.UseInMemoryDatabase("CraftBuddyInMemory" + Guid.NewGuid().ToString())
@@ -27,8 +27,10 @@ namespace CraftBuddy.Services.Tests
 			this.context = new CraftBuddyDbContext(this.contextOptions);
 			this.contextB = new CraftBuddyDbContext(this.contextOptions);
 
-			//this.context.Database.EnsureDeleted();
-			//this.context.Database.EnsureCreated();
+			this.context.Database.EnsureDeleted();
+			this.contextB.Database.EnsureDeleted();
+			this.context.Database.EnsureCreated();
+			this.contextB.Database.EnsureCreated();
 
 			SeedDatabase(this.context);
 
@@ -265,22 +267,22 @@ namespace CraftBuddy.Services.Tests
 			{
 				new ProductTypeViewModel()
 				{
-					Id = HatType.Id,
+					Id = 1,
 					Name = HatType.Name
 				},
 				new ProductTypeViewModel()
 				{
-					Id = BannerType.Id,
+					Id = 2,
 					Name = BannerType.Name
 				},
 				new ProductTypeViewModel()
 				{
-					Id = TopperType.Id,
+					Id = 3,
 					Name = TopperType.Name
 				},
 				new ProductTypeViewModel()
 				{
-					Id = FlagType.Id,
+					Id = 4,
 					Name = FlagType.Name
 				}
 			};

@@ -98,8 +98,7 @@ namespace CraftBuddy.Services.Tests
 
 			HatProduct = new Product()
 			{
-				TypeId = HatType.Id,
-				Type = HatType,
+				TypeId = 1,
 				Description = "Hat with a pink pompon and white board",
 				Price = 10.00m,
 				ImagePath = "/img/Hat.jpg",
@@ -186,17 +185,17 @@ namespace CraftBuddy.Services.Tests
 
 			context.Users.Add(CrafterUser);
 			context.Users.Add(ClientUser);
+			//context.ProductTypes.Add(HatType);
+			//context.ProductTypes.Add(BannerType);
+			//context.ProductTypes.Add(TopperType);
+			//context.ProductTypes.Add(FlagType);
+			//context.OrderStatuses.Add(Waiting);
+			//context.OrderStatuses.Add(Crafting);
+			//context.OrderStatuses.Add(Crafted);
 			context.Products.Add(HatProduct);
 			context.Products.Add(BannerProduct);
 			context.Products.Add(TopperProduct);
 			context.Products.Add(FlagProduct);
-			context.ProductTypes.Add(HatType);
-			context.ProductTypes.Add(BannerType);
-			context.ProductTypes.Add(TopperType);
-			context.ProductTypes.Add(FlagType);
-			context.OrderStatuses.Add(Waiting);
-			context.OrderStatuses.Add(Crafting);
-			context.OrderStatuses.Add(Crafted);
 			context.Orders.Add(Order);
 			context.Workshops.Add(NewWorkshop);
 			context.Articles.Add(NewArticle);
