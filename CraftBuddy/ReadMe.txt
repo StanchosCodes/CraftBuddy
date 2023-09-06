@@ -1,1 +1,0 @@
-All 87 Tests are working, but if you start them all at once, part of them are not passing. If you start them partly they are also working. I think it's an issue with the use of the InMemory database that i have to fix.
