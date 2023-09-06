@@ -156,4 +156,4 @@ For all edit, add, join, leave, delete pages there is a sweet alert message.
 [Stanislav Stamatov](https://www.linkedin.com/in/stanislav-stamatov-402647255)
 
 # Feedback would be appreciated
-If you like my project give it a star.
+If you like my project give it a star. ⭐
