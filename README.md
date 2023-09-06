@@ -54,7 +54,11 @@ Home page for a client.
 
 The orders drop-down menu contains a page with all orders of the client and a page for ordering a custom product.
 ![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/6df79672-0646-43a6-966d-f5f36ba7d8bf)
+
+Orders of the client.
 ![My Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/bd2480eb-9113-4309-8f99-8262a07547a3)
+
+Order a custom product page.
 ![Custom Order Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/aa219516-8a0c-41f8-b884-b9e2a501834d)
 
 Drop-down menu with all available crafters to craft the desired custom product.
@@ -84,10 +88,14 @@ Details about an article in the blog.
 Home page for crafters. Products drop-down menu contains pages for all products and adding a product. If the user is the owner of the product it can be editted.
 ![Products Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/61fff168-0471-4ac1-b3de-d87cd1538db8)
 
-Add product page and Edit product pages.
+Add product page.
 ![Add Product Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/15940cad-c1b3-49d4-8fe6-98b67a27e932)
-![Edit A Product You Have Made](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e2a26ded-3e73-4a23-a86d-c7cf4f752f50)
-![Edit A Product You Have Made Options Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/14d98beb-6252-4a5b-b1e7-6a6871311680)
+
+Edit product page.
+<p>
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e2a26ded-3e73-4a23-a86d-c7cf4f752f50" width="49%" />
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/14d98beb-6252-4a5b-b1e7-6a6871311680" width="49%" />
+</p>
 
 Orders drop-down menu contains pages for all orders of the user, page for ordering a product from another crafter, all waiting orders to be crafted by the user and a page with all already crafted orders.
 ![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e5de2320-ea90-4f7d-ba21-38e64af87228)
@@ -120,10 +128,14 @@ The blog drop-down menu contains pages for all available articles in the blog an
 </p>
 
 # Different sortings available for all users.
-![Sort Products Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/369e5661-8609-4533-927f-4d1288b1c0ca)
-![Sort By Product](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/364ecce6-917b-4951-bd8e-6c9a37835043)
-![Sort By Crafter](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/b521c57c-304e-4743-8902-15471e0787c3)
-![Basic Sortings](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/65358eea-a9d4-4be2-abb8-db24ddcdf7f2)
+<p>
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/369e5661-8609-4533-927f-4d1288b1c0ca" width="49%" />
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/364ecce6-917b-4951-bd8e-6c9a37835043" width="49%" />
+</p>
+<p>
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/b521c57c-304e-4743-8902-15471e0787c3" width="49%" />
+  <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/65358eea-a9d4-4be2-abb8-db24ddcdf7f2" width="49%" />
+</p>
 ![Sorted Products To Be 8 Hats Only Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/47cbf846-0e88-480a-898f-2362d7711c38)
 
 Details about a product.
@@ -135,3 +147,9 @@ For all edit, add, join, leave, delete pages there is a sweet alert message.
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/2c7751a4-c9fa-4942-869c-e237ac6e0b5c" width="49%" />
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d252aa41-4362-4a8f-a05d-8bd332654f8c" width="49%" />
 </p>
+
+# Author
+<a href="https://www.linkedin.com/in/stanislav-stamatov-402647255" value="Stanislav Stamatov" alt="LinkedIn Profile" />
+
+# Feedback would be appreciated
+If you like my project give it a star.
