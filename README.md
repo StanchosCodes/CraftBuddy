@@ -36,7 +36,7 @@ When migrations are applied the database is seeded only with the four product ty
 Here is a carousel with photos of the products.
 ![Home Page Before Login](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/8b8edb2e-d915-4ba7-89a3-80416867a855)
 
-You can choose to register as client or a crafter.
+### You can choose to register as client or a crafter.
 ![Register Options](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3cd8b0a8-7cbb-4f09-8668-363b80c406bb)
 
 # Register Pages
@@ -52,7 +52,7 @@ You can choose to register as client or a crafter.
 Home page for a client.
 ![Login As Client](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/eaa4d4ca-3a88-4ed5-b864-d23a7fb37fbf)
 
-The orders drop-down menu contains a page with all orders of the client and a page for ordering a custom product.
+### The orders drop-down menu contains a page with all orders of the client and a page for ordering a custom product.
 ![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/6df79672-0646-43a6-966d-f5f36ba7d8bf)
 
 Orders of the client.
@@ -67,10 +67,13 @@ Drop-down menu with all available crafters to craft the desired custom product.
 The user can see the details of its own orders.
 ![My Orders Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/00184ba7-232f-40d3-a124-f8ad470d7b26)
 
-The workshops drop-down menu contains a page for all available workshops and a page with all workshops joined by the user.
+### The workshops drop-down menu contains a page for all available workshops and a page with all workshops joined by the user.
 ![Workshops Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/f62b4901-89fb-45e2-8619-c571506112a1)
-![All Workshops Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/dfabf98b-705d-4e81-af5b-d4b2e2ef04b5)
-![Joined Workshops Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/c1d1ab9d-87b8-420d-b7af-2b85780c7b10)
+
+<p>
+  <img src"https://github.com/StanchosCodes/CraftBuddy/assets/102748080/dfabf98b-705d-4e81-af5b-d4b2e2ef04b5" width="49%" />
+  <img src"https://github.com/StanchosCodes/CraftBuddy/assets/102748080/c1d1ab9d-87b8-420d-b7af-2b85780c7b10" width="49%" />
+</p>
 
 Details for joined and not joined workshop.
 <p>
@@ -78,7 +81,7 @@ Details for joined and not joined workshop.
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/5581c7a6-2fd3-44bf-9043-cee0ef00a7dc" width="49%" />
 </p>
 
-Articles Page
+### Articles Page
 ![Articles Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/82ee6bcd-1b17-40f0-bdd5-57a213808bb5)
 
 Details about an article in the blog.
@@ -97,7 +100,7 @@ Edit product page.
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/14d98beb-6252-4a5b-b1e7-6a6871311680" width="49%" />
 </p>
 
-Orders drop-down menu contains pages for all orders of the user, page for ordering a product from another crafter, all waiting orders to be crafted by the user and a page with all already crafted orders.
+### Orders drop-down menu contains pages for all orders of the user, page for ordering a product from another crafter, all waiting orders to be crafted by the user and a page with all already crafted orders.
 ![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e5de2320-ea90-4f7d-ba21-38e64af87228)
 
 Waiting orders page and Crafted orders pages.
@@ -112,7 +115,7 @@ All waiting and crafted orders can be edited so the crafter can change them pric
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/76d4e730-2e85-4eee-8579-c62ea5109293" width="49%" />
 </p>
 
-Workshops drop-down menu contains pages for all available workshops, adding a workshop and all joined workshops by the user.
+### Workshops drop-down menu contains pages for all available workshops, adding a workshop and all joined workshops by the user.
 ![Workshops Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3c15a8ab-3f7a-4925-ae83-4d0416b262e8)
 
 Add workshop page.
@@ -121,7 +124,7 @@ Add workshop page.
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/f3ed05d6-d486-4c8a-bb7d-596080f2144e" width="49%" />
 </p>
 
-The blog drop-down menu contains pages for all available articles in the blog and for adding an article.
+### The blog drop-down menu contains pages for all available articles in the blog and for adding an article.
 <p>
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d8883bac-f7bf-4706-b033-f0e4f918f544" width="49%" />
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3681588d-1d92-42d9-a85b-3f2d19c7e8d9" width="49%" />
@@ -136,6 +139,7 @@ The blog drop-down menu contains pages for all available articles in the blog an
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/b521c57c-304e-4743-8902-15471e0787c3" width="49%" />
   <img src="https://github.com/StanchosCodes/CraftBuddy/assets/102748080/65358eea-a9d4-4be2-abb8-db24ddcdf7f2" width="49%" />
 </p>
+
 ![Sorted Products To Be 8 Hats Only Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/47cbf846-0e88-480a-898f-2362d7711c38)
 
 Details about a product.
@@ -149,7 +153,7 @@ For all edit, add, join, leave, delete pages there is a sweet alert message.
 </p>
 
 # Author
-<a href="https://www.linkedin.com/in/stanislav-stamatov-402647255" value="Stanislav Stamatov" alt="LinkedIn Profile" />
+[Stanislav Stamatov](https://www.linkedin.com/in/stanislav-stamatov-402647255)
 
 # Feedback would be appreciated
 If you like my project give it a star.
