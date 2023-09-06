@@ -40,7 +40,10 @@ You can choose to register as client or a crafter.
 ![Register Options](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3cd8b0a8-7cbb-4f09-8668-363b80c406bb)
 
 # Register Pages
-![Register As Client](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/1cb628fd-8f0e-44ce-a206-4c281c6713be) ![Register As Crafter](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3ecb2474-9b00-4c5a-82e5-a2bf262dab22)
+<p>
+  ![Register As Client](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/1cb628fd-8f0e-44ce-a206-4c281c6713be)
+  ![Register As Crafter](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3ecb2474-9b00-4c5a-82e5-a2bf262dab22)
+</p>
 
 # Login Page
 ![Login Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/ecc187e3-8460-4974-bd2f-a85b383f8598)
@@ -50,29 +53,33 @@ Home page for a client.
 ![Login As Client](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/eaa4d4ca-3a88-4ed5-b864-d23a7fb37fbf)
 
 The orders drop-down menu contains a page with all orders of the client and a page for ordering a custom product.
-![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/6df79672-0646-43a6-966d-f5f36ba7d8bf)
-![My Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/bd2480eb-9113-4309-8f99-8262a07547a3)
-![Custom Order Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/aa219516-8a0c-41f8-b884-b9e2a501834d)
+<p>
+  ![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/6df79672-0646-43a6-966d-f5f36ba7d8bf)
+  ![My Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/bd2480eb-9113-4309-8f99-8262a07547a3)
+  ![Custom Order Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/aa219516-8a0c-41f8-b884-b9e2a501834d)
+</p>
 
 Drop-down menu with all available crafters to craft the desired custom product.
 ![Custom Order Page Crafters Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/1630fda9-f23c-4360-953a-fa43b2d251dd)
-
 
 The user can see the details of its own orders.
 ![My Orders Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/00184ba7-232f-40d3-a124-f8ad470d7b26)
 
 The workshops drop-down menu contains a page for all available workshops and a page with all workshops joined by the user.
-![Workshops Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/f62b4901-89fb-45e2-8619-c571506112a1)
-![All Workshops Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/dfabf98b-705d-4e81-af5b-d4b2e2ef04b5)
-![Joined Workshops Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/c1d1ab9d-87b8-420d-b7af-2b85780c7b10)
+<p>
+  ![Workshops Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/f62b4901-89fb-45e2-8619-c571506112a1)
+  ![All Workshops Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/dfabf98b-705d-4e81-af5b-d4b2e2ef04b5)
+  ![Joined Workshops Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/c1d1ab9d-87b8-420d-b7af-2b85780c7b10)
+</p>
 
 Details for joined and not joined workshop.
-![Joined Workshop Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/07ae7293-f528-4683-ab75-1d11a2742282)
-![Workshop Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/5581c7a6-2fd3-44bf-9043-cee0ef00a7dc)
+<p>
+  ![Joined Workshop Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/07ae7293-f528-4683-ab75-1d11a2742282)
+  ![Workshop Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/5581c7a6-2fd3-44bf-9043-cee0ef00a7dc)
+</p>
 
 Articles Page
 ![Articles Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/82ee6bcd-1b17-40f0-bdd5-57a213808bb5)
-![Liked Article](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/ba0f91d5-19ad-4032-b6c9-64aff4111634)
 
 Details about an article in the blog.
 ![Articles Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/631471ec-661a-4af4-b65d-3efea6556ff8)
@@ -81,46 +88,58 @@ Details about an article in the blog.
 Home page for crafters. Products drop-down menu contains pages for all products and adding a product. If the user is the owner of the product it can be editted.
 ![Products Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/61fff168-0471-4ac1-b3de-d87cd1538db8)
 
-Add product page.
-![Add Product Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/15940cad-c1b3-49d4-8fe6-98b67a27e932)
-
-Edit product page.
-![Edit A Product You Have Made](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e2a26ded-3e73-4a23-a86d-c7cf4f752f50)
-![Edit A Product You Have Made Options Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/14d98beb-6252-4a5b-b1e7-6a6871311680)
+Add product page and Edit product pages.
+<p>
+  ![Add Product Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/15940cad-c1b3-49d4-8fe6-98b67a27e932)
+  ![Edit A Product You Have Made](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e2a26ded-3e73-4a23-a86d-c7cf4f752f50)
+  ![Edit A Product You Have Made Options Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/14d98beb-6252-4a5b-b1e7-6a6871311680)
+</p>
 
 Orders drop-down menu contains pages for all orders of the user, page for ordering a product from another crafter, all waiting orders to be crafted by the user and a page with all already crafted orders.
 ![Orders Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/e5de2320-ea90-4f7d-ba21-38e64af87228)
 
-Waiting orders page.
-![Waiting Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/826208ae-daea-4e0a-9d90-7db012ffb319)
-
-Crafted orders page.
-![Crafted Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/a06f68c8-7d25-4f8d-8499-12126f87b1a5)
+Waiting orders page and Crafted orders pages.
+<p>
+  ![Waiting Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/826208ae-daea-4e0a-9d90-7db012ffb319)
+  ![Crafted Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/a06f68c8-7d25-4f8d-8499-12126f87b1a5)
+</p>
 
 All waiting and crafted orders can be edited so the crafter can change them price or status.
-![Edit Waiting Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/6682a13c-2ad9-40db-9e64-0bbf41b195ba)
-![Edit Waiting Orders Options Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/76d4e730-2e85-4eee-8579-c62ea5109293)
+<p>
+  ![Edit Waiting Orders Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/6682a13c-2ad9-40db-9e64-0bbf41b195ba)
+  ![Edit Waiting Orders Options Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/76d4e730-2e85-4eee-8579-c62ea5109293)
+</p>
 
 Workshops drop-down menu contains pages for all available workshops, adding a workshop and all joined workshops by the user.
 ![Workshops Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3c15a8ab-3f7a-4925-ae83-4d0416b262e8)
 
 Add workshop page.
-![Add Workshop Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/ff2dd06c-b149-41f9-be96-aa721f23425b)
-![Add Workshop Calendar](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/f3ed05d6-d486-4c8a-bb7d-596080f2144e)
+<p>
+  ![Add Workshop Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/ff2dd06c-b149-41f9-be96-aa721f23425b)
+  ![Add Workshop Calendar](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/f3ed05d6-d486-4c8a-bb7d-596080f2144e)
+</p>
 
-The blog drop-down menu contains pages for all available topics in the blog and for adding a topic.
-![Blog Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d8883bac-f7bf-4706-b033-f0e4f918f544)
-
-Add article page.
-![Add A New Article To The Blog](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3681588d-1d92-42d9-a85b-3f2d19c7e8d9)
-
-# Sweet alert messages
-For all edit, add, join, leave, delete pages there is a sweet alert message.
-![Success Mesage When Ordering](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/2c7751a4-c9fa-4942-869c-e237ac6e0b5c)
-![Successfully Joned Workshop Message](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d252aa41-4362-4a8f-a05d-8bd332654f8c)
+The blog drop-down menu contains pages for all available articles in the blog and for adding an article.
+<p>
+  ![Blog Menu](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d8883bac-f7bf-4706-b033-f0e4f918f544)
+  ![Add A New Article To The Blog](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3681588d-1d92-42d9-a85b-3f2d19c7e8d9)
+</p>
 
 # Different sortings available for all users.
-![Sort Products Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/369e5661-8609-4533-927f-4d1288b1c0ca) ![Sort By Product](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/364ecce6-917b-4951-bd8e-6c9a37835043) ![Sort By Crafter](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/b521c57c-304e-4743-8902-15471e0787c3) ![Basic Sortings](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/65358eea-a9d4-4be2-abb8-db24ddcdf7f2) ![Sorted Products To Be 8 Hats Only Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/47cbf846-0e88-480a-898f-2362d7711c38)
+<p>
+  ![Sort Products Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/369e5661-8609-4533-927f-4d1288b1c0ca)
+  ![Sort By Product](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/364ecce6-917b-4951-bd8e-6c9a37835043)
+  ![Sort By Crafter](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/b521c57c-304e-4743-8902-15471e0787c3)
+  ![Basic Sortings](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/65358eea-a9d4-4be2-abb8-db24ddcdf7f2)
+  ![Sorted Products To Be 8 Hats Only Per Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/47cbf846-0e88-480a-898f-2362d7711c38)
+</p>
 
 Details about a product.
 ![Product Details Page](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/3b8693e4-8096-405f-8ef9-8af5323e0c39)
+
+# Sweet alert messages
+For all edit, add, join, leave, delete pages there is a sweet alert message.
+<p>
+  ![Success Mesage When Ordering](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/2c7751a4-c9fa-4942-869c-e237ac6e0b5c)
+  ![Successfully Joned Workshop Message](https://github.com/StanchosCodes/CraftBuddy/assets/102748080/d252aa41-4362-4a8f-a05d-8bd332654f8c)
+</p>
