@@ -1,6 +1,6 @@
 # CraftBuddy
 CraftBuddy is an ASP.NET Core MVC Web Project for final project at SoftUni.
-CraftBuddy is an online workshop where you can buy craft decorations for birthay parties or for what event you would like to.
+CraftBuddy is an online workshop where you can buy craft decorations for birthday parties or for what event you would like to.
 
 # 📐 Technical description
 The web app have two areas. One for crafters, who craft products and sell them and one for clients, who can buy already made products or describe exactly what product they want and send a request to a crafter to make it. On the other side, the crafter can control the status of the order and set a price after deciding how much would it cost to make it. There are two different forms for register of a crafter and a client.
