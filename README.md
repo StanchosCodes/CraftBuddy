@@ -11,20 +11,20 @@ There also are workshop events and a blog which are controled by the crafters. T
 There is one background for the login register home page and one background for all other pages. The images of the products are automatically set by the type of the product. There currently 4 types of products: Hat, Banner, Topper and a Flag. They are all party decorations. On the home page before you login, there is a carousel with example images of the products which is constantly changing. When you login you can sort the products on the home page as you desire: by price (ascending and descending), by type of the product or by the crafter of the products.
 
 # 📋 Used technologies
-Entity Framework Core 6
-ASP.NET Core 6
-ASP.NET Core Areas
-HTML5
-CSS3
-Bootstrap
-Limonte-sweetalert2
-NUnit
-JQuery
-JavaScript
-SOLID Principles
-MVC Design Pattern
-In-Memory Database - for Unit Tests
-SQL Server - for Development
++ Entity Framework Core 6
++ ASP.NET Core 6
++ ASP.NET Core Areas
++ HTML5
++ CSS3
++ Bootstrap
++ Limonte-sweetalert2
++ NUnit
++ JQuery
++ JavaScript
++ SOLID Principles
++ MVC Design Pattern
++ In-Memory Database - for Unit Tests
++ SQL Server - for Development
 
 # 💼 Database
 When migrations are applied the database is seeded only with the four product types and the three order statuses as they are needed from the beginning of the app. When the app is up and running you can register and explore.
